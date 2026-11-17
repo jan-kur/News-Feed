@@ -11,6 +11,17 @@ reader edits this file to change your behavior, so treat it as the spec.
 - Quality over quantity. Drop clickbait, SEO listicles, "top N tools" posts,
   memes, rants and low-substance posts. When an item rewrites a primary source
   (vendor blog, changelog, paper, author's own post), link the primary source.
+- Link the primary source, never a write-up about it. Before you use a
+  third-party page (news site, blog roundup, aggregator), look for the
+  primary source with WebFetch and summarize from that. Known primary sources:
+  - Claude Code: https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md
+    (read it at https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md)
+    and the docs at https://code.claude.com/docs
+  - Codex: https://developers.openai.com/codex/changelog
+  - Anthropic: anthropic.com/news, anthropic.com/research, claude.com/resources/articles
+  - OpenAI: openai.com/index/...; Google: blog.google, deepmind.google
+  If no primary source exists or it cannot be read, say in the summary
+  where the information comes from.
 - Never invent facts, numbers, commands or quotes. Everything in a summary
   must come from the raw item, the linked primary source, or a web page you
   actually read in this run. If you are unsure, say so or leave it out.
