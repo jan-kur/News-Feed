@@ -1,0 +1,99 @@
+# Sources for the daily AI news feed.
+# The GitHub Actions collector (scripts/collect.py) and the daily Claude task
+# (prompts/daily-feed.md) both read this file on every run. Edit it to add or
+# remove sources; no code change is needed. See README.md "Changing sources".
+
+timezone: Europe/Berlin
+
+# Items published in the last `lookback_hours` are collected. If a day was
+# skipped, the window stretches back to the previous run, up to the maximum.
+lookback_hours: 24
+max_lookback_hours: 72
+
+# Reading budget for the feed. Reading time = words / words_per_minute.
+feed:
+  words_per_minute: 230
+  max_minutes: 25          # 30 min daily total minus 5 min for the X List
+  x_list_reserved_minutes: 5
+  x_list_url: "https://x.com/i/lists/2122622486575562915"
+
+youtube:
+  skip_shorts: true
+  transcript_max_chars: 80000
+  channels:
+    # channel_id is optional: if missing, it is resolved from the handle on each run.
+    - name: Better Stack
+      handle: "@betterstack"
+      channel_id: UCkVfrGwV-iG9bSsgCbrNPxQ
+    - name: AI Engineer
+      handle: "@aiDotEngineer"
+      channel_id: UCLKPca3kwwd-B59HNr-_lvA
+    - name: Theo - t3.gg
+      handle: "@t3dotgg"
+      channel_id: UCbRP3c757lWg9M-U7TyEkXA
+
+reddit:
+  subreddits:
+    - ClaudeCode
+    - ClaudeAI
+  posts_per_subreddit: 10   # top posts of the last 24h, highest score first
+  min_score: 25             # ignored when Reddit only answers via RSS (no scores)
+  comments_per_post: 10
+
+github_releases:
+  - repo: anthropics/claude-code
+    name: Claude Code releases
+  - repo: openai/codex
+    name: Codex releases
+    include_prereleases: false
+
+rss:
+  - name: OpenAI News
+    url: https://openai.com/news/rss.xml
+    fetch_full_text: true
+  - name: Simon Willison
+    url: https://simonwillison.net/atom/everything/
+  - name: Google DeepMind Blog
+    url: https://deepmind.google/blog/rss.xml
+    fetch_full_text: true
+
+# Sites without an RSS feed: the index page is scanned for article links,
+# new articles are fetched and kept if they were published inside the window.
+web_pages:
+  - name: Anthropic News
+    index: https://www.anthropic.com/news
+    link_pattern: '^/news/[a-z0-9-]+$'
+    exclude: [/news/announcements, /news/features, /news/product, /news/policy, /news/societal-impacts]
+  - name: Anthropic Engineering
+    index: https://www.anthropic.com/engineering
+    # engineering posts are served under /research/ since 2026
+    link_pattern: '^/(engineering|research)/(?!team/)[A-Za-z0-9-]+$'
+  - name: Claude Blog
+    index: https://claude.com/resources/articles   # claude.com/blog redirects here
+    link_pattern: '^/resources/articles/[a-z0-9-]+$'
+
+hacker_news:
+  lookback_hours: 48     # HN stories need time to collect points
+  min_points: 80
+  max_items: 25
+  fetch_article_text: true
+  queries:
+    - Claude
+    - Anthropic
+    - Claude Code
+    - Codex
+    - OpenAI
+    - GPT
+    - Gemini
+    - DeepSeek
+    - Qwen
+    - Mistral
+    - Llama
+    - LLM
+    - coding agent
+    - AI agent
+    - MCP
+    - agentic
+
+# daily.dev: checked in Nov 2026. It has no free public RSS feed; its public
+# API needs a token and is in beta (Plus-oriented), so it is not used.
