@@ -40,12 +40,17 @@ reddit:
   min_score: 25             # ignored when Reddit only answers via RSS (no scores)
   comments_per_post: 10
 
+# Tried in order: github.com releases feed, GitHub API, then changelog_url
+# (the cloud session's GitHub proxy can block repos outside this one).
 github_releases:
   - repo: anthropics/claude-code
-    name: Claude Code releases
+    name: Claude Code
+    changelog_url: https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md
+    changelog_link: https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md
   - repo: openai/codex
-    name: Codex releases
+    name: Codex
     include_prereleases: false
+    changelog_url: https://developers.openai.com/codex/changelog
 
 rss:
   - name: OpenAI News

@@ -332,8 +332,12 @@ class Reddit:
         return feedparser.parse(r.content).entries
 
     def rss_comments(self, link, limit):
-        r = requests.get(link.rstrip("/") + "/.rss", params={"sort": "top", "limit": limit + 1},
-                         headers={"User-Agent": UA_BROWSER}, timeout=30)
+        for attempt in range(4):
+            r = requests.get(link.rstrip("/") + "/.rss", params={"sort": "top", "limit": limit + 1},
+                             headers={"User-Agent": UA_BROWSER}, timeout=30)
+            if r.status_code != 429:
+                break
+            time.sleep(10 * (attempt + 1))  # Reddit rate limit: back off and retry
         r.raise_for_status()
         entries = feedparser.parse(r.content).entries[1:]  # first entry is the post itself
         return [{"score": None, "body": clip(html_to_text(e.get("summary", "")), 2500), "replies": []}
@@ -403,7 +407,7 @@ def collect_reddit(cfg, since, seen, status: Status) -> list[dict]:
                         "text": clip(html_to_text(e.get("summary", "")), 12000), "comments": comments,
                     })
                     count += 1
-                    time.sleep(1.5)
+                    time.sleep(4)
                     if count >= per_sub:
                         break
                 status.ok(name, count, f"via RSS fallback (JSON failed: {str(json_err)[:120]})")
@@ -414,33 +418,101 @@ def collect_reddit(cfg, since, seen, status: Status) -> list[dict]:
 
 # ---------------------------------------------------------------- GitHub releases
 
-def collect_github_releases(cfg, since, seen, status: Status) -> list[dict]:
-    items = []
+def _is_prerelease_tag(tag: str) -> bool:
+    return bool(re.search(r"(alpha|beta|rc|nightly|preview)", tag, re.I))
+
+
+def _releases_from_atom(repo: str) -> list[dict]:
+    """github.com/<repo>/releases.atom: no API rate limit, includes release notes."""
+    feed = feedparser.parse(get(f"https://github.com/{repo}/releases.atom").content)
+    if not feed.entries:
+        raise RuntimeError("empty releases.atom")
+    out = []
+    for e in feed.entries:
+        link = e.get("link", "")
+        tag = link.rsplit("/tag/", 1)[-1] if "/tag/" in link else e.get("title", "")
+        body = e["content"][0].get("value", "") if e.get("content") else e.get("summary", "")
+        out.append({"tag": tag, "name": e.get("title") or tag, "url": link,
+                    "published": parse_date(e.get("updated_parsed") or e.get("published_parsed")),
+                    "body": html_to_text(body), "prerelease": _is_prerelease_tag(tag), "draft": False})
+    return out
+
+
+def _releases_from_api(repo: str) -> list[dict]:
     headers = {"Accept": "application/vnd.github+json"}
     if os.environ.get("GITHUB_TOKEN"):
         headers["Authorization"] = f"Bearer {os.environ['GITHUB_TOKEN']}"
+    rels = get(f"https://api.github.com/repos/{repo}/releases", params={"per_page": 30}, headers=headers).json()
+    return [{"tag": r["tag_name"], "name": r.get("name") or r["tag_name"], "url": r.get("html_url"),
+             "published": parse_date(r.get("published_at")), "body": r.get("body") or "",
+             "prerelease": r.get("prerelease") or _is_prerelease_tag(r["tag_name"]), "draft": r.get("draft")}
+            for r in rels]
+
+
+def _changelog_items(repo: str, rel_cfg: dict, seen) -> list[dict]:
+    """Last resort when GitHub is unreachable: read the project's changelog page.
+
+    Markdown changelogs are split on '## ' headings (one item per new version,
+    newest first, at most 5). HTML pages become one item keyed by their first lines.
+    """
+    url = rel_cfg["changelog_url"]
+    name = rel_cfg.get("name", repo)
+    out = []
+    if url.endswith(".md"):
+        text = get(url).text
+        sections = re.split(r"(?m)^## ", text)[1:]
+        first_run = not any(k.startswith(f"changelog:{repo}:") for k in seen)
+        for sec in sections[: 1 if first_run else 5]:
+            heading, _, body = sec.partition("\n")
+            item_id = f"changelog:{repo}:{heading.strip()}"
+            if item_id in seen:
+                break
+            out.append({"id": item_id, "section": "news", "source": name, "kind": "release",
+                        "title": f"{name} {heading.strip()}", "url": rel_cfg.get("changelog_link", url),
+                        "published": None, "text": clip(body.strip(), 15000)})
+    else:
+        body, published, title = fetch_article(url, 6000)
+        key = re.sub(r"\W+", " ", body[:300]).strip()
+        item_id = f"changelog:{repo}:{key[:120]}"
+        if item_id not in seen and body:
+            out.append({"id": item_id, "section": "news", "source": name, "kind": "release",
+                        "title": f"{name}: latest changelog entries", "url": url,
+                        "published": iso(published), "text": body})
+    return out
+
+
+def collect_github_releases(cfg, since, seen, status: Status) -> list[dict]:
+    items = []
     for rel_cfg in cfg.get("github_releases") or []:
         repo = rel_cfg["repo"]
         name = f"GitHub releases: {repo}"
         try:
-            rels = get(f"https://api.github.com/repos/{repo}/releases", params={"per_page": 30}, headers=headers).json()
+            try:
+                rels, via = _releases_from_atom(repo), "atom"
+            except Exception as atom_err:
+                try:
+                    rels, via = _releases_from_api(repo), f"api (atom failed: {str(atom_err)[:80]})"
+                except Exception as api_err:
+                    if not rel_cfg.get("changelog_url"):
+                        raise
+                    found = _changelog_items(repo, rel_cfg, seen)
+                    items.extend(found)
+                    status.ok(name, len(found), f"via changelog page (atom: {str(atom_err)[:60]}; api: {str(api_err)[:60]})")
+                    continue
             count = 0
             for r in rels:
-                item_id = f"ghrelease:{repo}:{r['tag_name']}"
-                published = parse_date(r.get("published_at"))
-                if item_id in seen or r.get("draft") or not published or published < since:
+                item_id = f"ghrelease:{repo}:{r['tag']}"
+                if item_id in seen or r["draft"] or not r["published"] or r["published"] < since:
                     continue
-                if r.get("prerelease") and not rel_cfg.get("include_prereleases", False):
-                    continue
-                if re.search(r"(alpha|beta|rc|nightly)", r["tag_name"], re.I) and not rel_cfg.get("include_prereleases", False):
+                if r["prerelease"] and not rel_cfg.get("include_prereleases", False):
                     continue
                 items.append({
                     "id": item_id, "section": "news", "source": rel_cfg.get("name", repo), "kind": "release",
-                    "title": r.get("name") or r["tag_name"], "url": r.get("html_url"), "published": iso(published),
-                    "text": clip(r.get("body") or "", 15000),
+                    "title": r["name"], "url": r["url"], "published": iso(r["published"]),
+                    "text": clip(r["body"], 15000),
                 })
                 count += 1
-            status.ok(name, count)
+            status.ok(name, count, f"via {via}")
         except Exception as e:
             status.fail(name, e)
     return items
@@ -547,6 +619,7 @@ def collect_hn(cfg, since_default, seen, status: Status) -> list[dict]:
         for q in hc["queries"]:
             r = get("https://hn.algolia.com/api/v1/search", params={
                 "query": q, "tags": "story", "hitsPerPage": 50,
+                "restrictSearchableAttributes": "title", "typoTolerance": "false",
                 "numericFilters": f"created_at_i>{int(since.timestamp())},points>={min_points}",
             })
             for h in r.json().get("hits", []):

@@ -44,7 +44,7 @@ def overview(path=None):
         print(f"  {flag} {name}: {st.get('count', 0)} {extra[:300]}")
     print("\nITEMS (id | source | published | metrics | words | title)")
     for it in d["items"]:
-        body_words = words(it.get("transcript")) or words(it.get("text"))
+        body_words = words(it.get("transcript")) or words(it.get("text")) or words(it.get("description"))
         metrics = []
         for k in ("score", "points", "num_comments", "views"):
             if it.get(k) is not None:
