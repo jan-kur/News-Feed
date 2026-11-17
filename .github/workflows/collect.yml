@@ -1,10 +1,11 @@
 name: Collect raw items
 
+# Optional. The daily Claude task runs the collector itself (prompts/daily-feed.md),
+# so this workflow is not needed. It is kept for manual runs if GitHub Actions
+# becomes available on the account. To run it daily, add back:
+#   schedule:
+#     - cron: "40 3 * * *"
 on:
-  schedule:
-    # 03:40 UTC = 04:40 CET (winter) / 05:40 CEST (summer). GitHub often starts
-    # scheduled runs 5-30 min late, so the feed task fires around 05:00 in winter.
-    - cron: "40 3 * * *"
   workflow_dispatch:
     inputs:
       fire_task:
