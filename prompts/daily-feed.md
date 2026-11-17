@@ -63,9 +63,10 @@ reader edits this file to change your behavior, so treat it as the spec.
   score it. For YouTube, read the whole transcript.
 - Note every source with `FAIL`, and YouTube items marked "no transcript".
   They go in `source_issues` (step 6).
-- Hacker News items whose article text says "article fetch failed": open the
-  article with WebFetch if the item looks important; otherwise judge it by
-  title, points and the HN thread.
+- Items with little text (for example OpenAI News gives only a one-line
+  description, and Hacker News items may say "article fetch failed"): open
+  the url with WebFetch if the item looks relevant to the topics, and
+  summarize from the full page. Otherwise judge it by title and metadata.
 
 ## 3. Web searches for what the feeds missed
 

@@ -20,6 +20,15 @@ feed:
 youtube:
   skip_shorts: true
   transcript_max_chars: 80000
+  # YouTube blocks transcript requests from cloud servers. When direct fetching
+  # fails, the collector asks this Apify actor, which uses residential IPs.
+  # Free Apify plan: $5 credit/month; this actor is listed at $1 per 1,000 videos.
+  # Token: network secret for api.apify.com (Authorization: Bearer) on the
+  # News-Feed environment, or an APIFY_TOKEN environment variable.
+  apify:
+    enabled: true
+    actor: datavoid/youtube-transcript-pro
+    input: {youtube_url: "{url}"}
   channels:
     # channel_id is optional: if missing, it is resolved from the handle on each run.
     - name: Better Stack

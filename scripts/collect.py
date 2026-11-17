@@ -151,13 +151,38 @@ def resolve_channel_id(handle: str) -> str:
     raise RuntimeError(f"could not resolve channel id for {handle}")
 
 
-class TranscriptFetcher:
-    """Tries youtube-transcript-api, then yt-dlp. Remembers when YouTube blocks us."""
+def _find_transcript_text(obj) -> str:
+    """Pull transcript text out of an Apify dataset item, whatever the actor calls the field."""
+    if isinstance(obj, str):
+        return obj
+    if isinstance(obj, list):
+        parts = [_find_transcript_text(x) for x in obj]
+        return " ".join(p for p in parts if p)
+    if isinstance(obj, dict):
+        for key in ("transcript", "transcriptText", "transcript_text", "fullText", "full_text", "text",
+                    "captions", "subtitles", "segments", "content", "data"):
+            if key in obj and obj[key]:
+                found = _find_transcript_text(obj[key])
+                if len(found.split()) >= 5 or key in ("text", "utf8"):
+                    return found
+    return ""
 
-    def __init__(self, max_chars: int):
+
+class TranscriptFetcher:
+    """Tries youtube-transcript-api, then yt-dlp, then an Apify actor (residential IPs).
+
+    YouTube blocks cloud IPs, so the first two usually fail in the cloud and work
+    from a home connection. Apify is used only when it is enabled in config and
+    a token is available (APIFY_TOKEN env var, or a network secret for
+    api.apify.com that the cloud proxy injects as the Authorization header).
+    """
+
+    def __init__(self, max_chars: int, apify_cfg: dict | None = None):
         self.max_chars = max_chars
         self.api_blocked = False
         self.ytdlp_blocked = False
+        self.apify = apify_cfg if (apify_cfg or {}).get("enabled") else None
+        self.apify_failed = False
         self.errors: list[str] = []
 
     def get(self, video_id: str) -> tuple[str | None, str]:
@@ -176,7 +201,36 @@ class TranscriptFetcher:
                 return text, "yt-dlp"
             if reason == "blocked":
                 self.ytdlp_blocked = True
+        if self.apify and not self.apify_failed:
+            text = self._apify(video_id)
+            if text:
+                return text, f"apify ({self.apify['actor']})"
         return None, "blocked by YouTube" if (self.api_blocked and self.ytdlp_blocked) else "transcript fetch failed"
+
+    def _apify(self, video_id):
+        actor = self.apify["actor"].replace("/", "~")
+        url = f"https://www.youtube.com/watch?v={video_id}"
+        body = json.loads(json.dumps(self.apify.get("input") or {"youtube_url": "{url}"}).replace("{url}", url))
+        headers = {"Content-Type": "application/json"}
+        if os.environ.get("APIFY_TOKEN"):
+            headers["Authorization"] = f"Bearer {os.environ['APIFY_TOKEN']}"
+        try:
+            r = requests.post(f"https://api.apify.com/v2/acts/{actor}/run-sync-get-dataset-items",
+                              params={"timeout": 240}, json=body, headers=headers, timeout=300)
+            if r.status_code in (401, 402, 403):
+                # Missing/invalid token or free credit used up: stop trying for the rest of this run.
+                self.apify_failed = True
+                self.errors.append(f"apify {video_id}: HTTP {r.status_code} {r.text[:200]}")
+                return None
+            r.raise_for_status()
+            text = re.sub(r"\s+", " ", _find_transcript_text(r.json())).strip()
+            if not text:
+                self.errors.append(f"apify {video_id}: no transcript in response {r.text[:200]}")
+                return None
+            return clip(text, self.max_chars)
+        except Exception as e:
+            self.errors.append(f"apify {video_id}: {str(e)[:200]}")
+            return None
 
     def _api(self, video_id):
         try:
@@ -223,7 +277,7 @@ class TranscriptFetcher:
 
 def collect_youtube(cfg, since, seen, status: Status) -> list[dict]:
     yt = cfg.get("youtube") or {}
-    fetcher = TranscriptFetcher(int(yt.get("transcript_max_chars", 80000)))
+    fetcher = TranscriptFetcher(int(yt.get("transcript_max_chars", 80000)), yt.get("apify"))
     items = []
     for ch in yt.get("channels") or []:
         name = f"YouTube: {ch['name']}"
@@ -673,9 +727,18 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--date", help="date label for the raw file (default: today, Europe/Berlin)")
     ap.add_argument("--dry-run", action="store_true", help="do not write files")
+    ap.add_argument("--test-transcript", metavar="VIDEO_ID", help="only fetch one transcript and report the method")
     args = ap.parse_args()
 
     cfg = yaml.safe_load(CONFIG.read_text())
+    if args.test_transcript:
+        yt = cfg.get("youtube") or {}
+        f = TranscriptFetcher(int(yt.get("transcript_max_chars", 80000)), yt.get("apify"))
+        text, method = f.get(args.test_transcript)
+        print(f"method: {method}\nwords: {len((text or '').split())}\nstart: {(text or '')[:300]}")
+        for e in f.errors:
+            print("error:", e[:300])
+        sys.exit(0 if text else 1)
     try:
         from zoneinfo import ZoneInfo
         today = dt.datetime.now(ZoneInfo(cfg.get("timezone", "Europe/Berlin"))).date().isoformat()

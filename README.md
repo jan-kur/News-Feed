@@ -70,7 +70,11 @@ Edit the files in `config/` on GitHub (pencil icon) or locally, and commit to
    - Prompt: `Follow the instructions in prompts/daily-feed.md exactly.`
    - Repository: `jan-kur/News-Feed`. Environment: `News-Feed`.
    - Trigger: Schedule, daily at 05:00 Europe/Berlin.
-4. **Add the app to your home screen.**
+4. **Apify token for YouTube transcripts.** Create a free account at
+   apify.com, copy the API token (Settings, API & Integrations). In the
+   `News-Feed` environment's settings add a network secret: host
+   `api.apify.com`, header `Authorization`, value `Bearer <token>`.
+5. **Add the app to your home screen.**
    - iPhone: open the site in Safari, Share, "Add to Home Screen".
    - Android: open the site in Chrome, menu, "Add to Home screen" or "Install app".
 
@@ -89,10 +93,12 @@ RSS endpoints. If you get an approved app, set `REDDIT_CLIENT_ID`,
 
 ## Known limits
 
-- YouTube often blocks transcript requests from cloud servers. The
-  collector tries `youtube-transcript-api`, then `yt-dlp`, and otherwise marks
-  the video "no transcript". The summary then uses the title and description,
-  and the app shows a "no transcript" badge.
+- YouTube blocks transcript requests from cloud servers (GitHub's too). The
+  collector tries `youtube-transcript-api`, then `yt-dlp`, then the Apify actor
+  set in `youtube.apify` (residential IPs, free plan has $5 credit a month,
+  about $0.001 per video). Without an Apify token the video is marked
+  "no transcript" and summarized from title and description. Test one video
+  with `python scripts/collect.py --test-transcript VIDEO_ID`.
 - Reddit's free OAuth API needs Reddit's manual approval for new apps since
   November 2025. The public JSON and RSS endpoints work without it but may be
   rate-limited or blocked from cloud IP ranges. Failures show up under
