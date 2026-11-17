@@ -1,0 +1,13 @@
+{
+ "days": [
+  {
+   "date": "2026-11-17",
+   "minutes": 8.1,
+   "counts": {
+    "news": 5,
+    "youtube": 1,
+    "reddit": 4
+   }
+  }
+ ]
+}

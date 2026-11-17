@@ -1,0 +1,217 @@
+{
+ "date": "2026-11-17",
+ "intro": "Claude Code 2.1.326 lets the experimental Code Mode run with agent teams, and Alibaba's Qwen4-Max preview drew the day's biggest model discussion on Hacker News.",
+ "sections": {
+  "news": {
+   "items": [
+    {
+     "id": "hn:50513215",
+     "title": "Qwen4-Max: Alibaba's next flagship, still in preview",
+     "source": "Qwen",
+     "url": "https://qwen.ai/blog?id=qwen4-max",
+     "published": "2026-11-16T02:14:44Z",
+     "score": 78,
+     "summary": "Alibaba's Qwen team released Qwen4-Max as a managed preview, the first model of the Qwen4 family. The Qwen blog post did not render in my fetch, so these details come from third-party coverage and the HN thread, and are not confirmed by Alibaba.\n\n- **Access:** through Alibaba's Token Plan subscription (entry tier advertised at about $3 for new users), QwenWork, Qoder, the Qwen app and QwenStudio. Token Plan works with OpenAI- or Anthropic-compatible clients, including Qwen Code, Cline, Claude Code, Cursor, OpenCode and Codex.\n- **Not published:** official benchmarks, per-token API pricing and open weights. The often-quoted 1M-token context comes from a Qwen Code client default, not a confirmed server limit.\n- **From the HN thread:** a commenter cites a score of 43 on the Artificial Analysis index at an average of $3.27 per task, against 46 and $0.36 for GPT-6.1 Sol (medium). Simon Willison notes that Qwen4-Max adds a `none` reasoning setting, which Qwen3.8 Max did not have.\n\nFor your work: worth a try through Claude Code or Codex if you already pay for Token Plan, but wait for official numbers before you compare it with Opus 5.5 or GPT-6.1.",
+     "links": [
+      {
+       "label": "HN discussion (863 points)",
+       "url": "https://news.ycombinator.com/item?id=50513215"
+      }
+     ],
+     "words": 205,
+     "minutes": 0.9
+    },
+    {
+     "id": "search:https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md#2.1.326",
+     "title": "Claude Code 2.1.326: Code Mode with agent teams, many prompt and login fixes",
+     "source": "Claude Code changelog",
+     "url": "https://github.com/anthropics/claude-code/blob/main/CHANGELOG.md",
+     "published": "2026-11-16T18:43:39Z",
+     "score": 74,
+     "summary": "Released 16 Nov (npm). The changes that matter to a heavy user:\n\n- **Code Mode + agent teams:** you can now turn on Code Mode while agent teams are on. If you had both set, team sessions now start in Code Mode. Code Mode fixes: skills with inline `!` commands now load under auto mode, background subagents that preload such skills no longer fail, and mods can call tools through `$.tool.call` in Code Mode.\n- **Startup checks:** a warning when an `--allowedTools`, `--disallowedTools` or `--tools` entry doesn't look like a complete rule. `/status` now says when your provider or a variable like `DISABLE_TELEMETRY` turns features off. Ctrl+O shows hidden startup notices.\n- **Safety fixes:** `claude purge` no longer hides its prompts when stdout is redirected (one unseen Enter could delete a project's data). Bash commands that delete or overwrite files (`find -delete`, `cat a > b`) are no longer shown as a search or read.\n- **API errors:** when `max_tokens` exceeds the model limit, Claude Code now retries with the maximum the API reports. Image-heavy Vertex sessions now compact instead of failing on the 30 MB request limit.\n- **Resume:** fixed resumed sessions losing recent turns after a crash, or earlier history when memory ran low.\n\nNote from 2.1.325 (13 Nov): sandboxed Bash commands now follow the normal permission flow by default. Set `sandbox.autoAllowBashIfSandboxed: true` to keep running them without prompts.",
+     "words": 239,
+     "minutes": 1.0
+    },
+    {
+     "id": "hn:50526152",
+     "title": "lend: let remote coding agents use your laptop's credentials with per-command approval",
+     "source": "blog.antonio.cx",
+     "url": "https://blog.antonio.cx/running-agents-with-lend",
+     "published": "2026-11-17T01:18:56Z",
+     "score": 72,
+     "summary": "The author runs Claude Code and Codex on throwaway VMs and keeps SSH keys, 1Password and logged-in CLIs (`gh`, cloud) on the laptop. `lend` is a proxy in front of the SSH agent: you forward its socket instead of the real one, and agents on the VM ask to run commands on the laptop. Each request is checked against a laptop-side policy and approved with Touch ID; the token never reaches the VM.\n\n- Connect with `lend ssh --config ./policy.json -- agent-vm`. The policy is default-deny and lists allowed executables, optional `args_prefix` (for example `[\"pr\", \"view\"]`) and approval type (`biometric:inline`).\n- Claude Code uses it through `lend mcp`, an MCP server with one tool, `run_local_command`, that requires a reason. CLI form: `lend exec --reason \"...\" -- gh repo view ...`.\n- Rules can inject secrets as env vars via `op read`, so the agent gets the command output but never the token. Caveat: never allow `env`, a shell or `op` itself, or the values leak back.\n- `lend approve --hook claude-code` as a `PermissionRequest` hook moves Claude Code's permission prompts to a Touch ID dialog on the Mac. Adapters exist for Codex, Antigravity and pi.\n- Leases (for example five minutes or three uses) match only the exact approved command; `lend pause --all` stops everything.\n\nIt does not sandbox approved commands: they run as you on the laptop.",
+     "links": [
+      {
+       "label": "HN discussion",
+       "url": "https://news.ycombinator.com/item?id=50526152"
+      }
+     ],
+     "words": 240,
+     "minutes": 1.0
+    },
+    {
+     "id": "hn:50524736",
+     "title": "Windows 11 records which coding agents you run and can upload it to Microsoft",
+     "source": "xusheng.dev",
+     "url": "https://xusheng.dev/posts/windows-coding-agent-telemetry/",
+     "published": "2026-11-16T22:58:20Z",
+     "score": 70,
+     "summary": "A reverse-engineering write-up finds that `MissionControlAggregator.dll`, loaded by DiagTrack's `AggregatorHost.exe`, matches executable names against CLI agents (`copilot.exe`, `claude.exe`, `codex.exe`, `agy.exe`, also via WSL), desktop agents (GitHub, Claude, Codex, Cursor, Antigravity) and dev tools (node, python, dotnet, gcc, clang, VS Code and others). The feature flag is `CLICodingAgentUsage` (ID 62580080).\n\nIt stores only a bitmap of which tools were seen per reporting window, no prompts or code. The author renamed `cmd.exe` to `codex.exe` and found the resulting `Segments.SubCohorts` event in DiagTrack's upload queue, marked as optional diagnostic data. Optional diagnostics were on by default in a clean US install of Windows 11 Home ARM64. The public ISO's baseline had the agent feature off by image default, so it is not proven active everywhere.\n\nTo stop it: Settings, Privacy & security, Diagnostics & feedback, turn off \"Send optional diagnostic data\".",
+     "links": [
+      {
+       "label": "HN discussion (616 points)",
+       "url": "https://news.ycombinator.com/item?id=50524736"
+      }
+     ],
+     "words": 152,
+     "minutes": 0.7
+    },
+    {
+     "id": "hn:50506376",
+     "title": "Sebastian Raschka explains positional embeddings, from GPT-2 to RoPE and NoPE",
+     "source": "Ahead of AI (Sebastian Raschka)",
+     "url": "https://magazine.sebastianraschka.com/p/understanding-positional-embeddings",
+     "published": "2026-11-15T12:14:06Z",
+     "score": 58,
+     "summary": "A long technical walkthrough of how LLMs encode token position: learned absolute embeddings (GPT-2's 1,024-entry table, which would be over 22% of GPT-2 Medium's weights at a 100k context), fixed sinusoidal encodings, RoPE with a small PyTorch implementation, and NoPE. A final section lists which methods 2026 open-weight models use. Useful background if you read model cards; skip if you only use models through APIs.",
+     "links": [
+      {
+       "label": "HN discussion",
+       "url": "https://news.ycombinator.com/item?id=50506376"
+      }
+     ],
+     "words": 82,
+     "minutes": 0.4
+    }
+   ],
+   "words": 918,
+   "minutes": 4.0
+  },
+  "youtube": {
+   "items": [
+    {
+     "id": "youtube:UCL4K36SHp0",
+     "title": "Let's Open Source the World: Brandon Thomas on building ArtCraft with Rust and coding agents",
+     "source": "AI Engineer",
+     "url": "https://www.youtube.com/watch?v=UCL4K36SHp0",
+     "published": "2026-11-16T13:00:07Z",
+     "score": 55,
+     "summary": "CODE Summit 2026 talk. Brandon Thomas says ArtCraft's first Photoshop approximation took about 24 hours to build, and explains how Rust and AI coding agents power open-source alternatives to Adobe's tools, Microsoft Office and Figma. Topics from the description: MCP and CLI automation, Linux support, reusable UI components, CI bottlenecks, human review, and Autocraft, a forthcoming software factory for issue triage, agentic development, evals and post-training.",
+     "transcript": false,
+     "verdict": "Worth watching in full: maybe, only if you build large apps with agents; this summary is based on the description because the transcript was blocked.",
+     "words": 108,
+     "minutes": 0.5
+    }
+   ],
+   "words": 108,
+   "minutes": 0.5
+  },
+  "reddit": {
+   "items": [
+    {
+     "id": "reddit:1xxyc5a",
+     "title": "Benchmark: does delegating from Opus to Haiku subagents save money? (Part 2, ~300 runs)",
+     "source": "r/ClaudeCode",
+     "url": "https://www.reddit.com/r/ClaudeCode/comments/1xxyc5a/does_delegating_to_cheaper_models_actually_save/",
+     "published": "2026-11-16T19:16:54Z",
+     "score": 84,
+     "summary": "A user ran about 300 runs on real open-source codebases (up to ~100k lines, buildbot) comparing Opus alone, Opus told not to delegate, Opus + Haiku subagents, and Sonnet or Haiku alone. Costs are estimated at API prices, mostly two runs per setup, and Opus wrote the tests and judged results.\n\n- **Big reviews:** on an 85-page docs check, Opus + Haiku found 58 and 63 of 92 real errors against 36 and 38 for Opus alone, at $1.93 vs $4.11 per run. It read about 3x more and wrote 8x more tokens, yet cost about half. Cost per real error: $0.03 vs $0.11.\n- **Coding:** Opus + Haiku saved 20 to 30% at the same quality ($1.95 vs $1.36 on the 100k-line codebase). Haiku alone cost $0.15 and passed the hidden tests, but missed an implied database index the Opus-led setups added.\n- **Trap tasks (128 runs):** Opus $7.00, Opus + Haiku $6.30, Sonnet $2.30, Haiku $0.36. Hidden tests barely separated them. Opus found all 3 planted review bugs every time, Haiku 2 of 3.\n- **Small codebases:** Opus alone can be cheaper and more accurate, likely because subagents rebuild context that Opus already has cached. Left alone, Opus never delegated.\n\nTakeaway: push Opus to delegate to Haiku for large reviews; try Haiku alone for small, well-specified coding tasks with tests. Comments ask for wall-clock time (the author will add it) and for tests of Opus at low effort as the subagent. Data and checker: github.com/Manuele-T/claude-model-router.",
+     "words": 262,
+     "minutes": 1.1
+    },
+    {
+     "id": "reddit:1xy0xr9",
+     "title": "Claude Code's experimental Code Mode: Claude writes JavaScript that batches tool calls",
+     "source": "r/ClaudeCode",
+     "url": "https://www.reddit.com/r/ClaudeCode/comments/1xy0xr9/psa_claude_code_has_an_experimental_code_mode_now/",
+     "published": "2026-11-16T20:53:44Z",
+     "score": 82,
+     "summary": "The post points out Code Mode, added in 2.1.323 (12 Nov). Instead of separate tool calls whose raw output fills the context, Claude writes one JavaScript snippet that runs commands in parallel, filters output locally and returns only what it needs. Commenters note the difference from Claude's old Python scripts: this code can call harness tools, including MCP servers, so data can move from one MCP server to another without passing through the model. The pattern predates Claude Code (Cloudflare's codemode, Pi agent, OpenCode).\n\nFrom the official docs:\n\n- Turn on with `CLAUDE_CODE_EXPERIMENTAL_CODE_MODE=1 claude`, or put it in the `env` block of `~/.claude/settings.json` (project settings can't turn it on). Organizations block it with the value `0` in managed settings.\n- Needs v2.1.323+, the native build, an interactive terminal session, a subscription or Console account (no Bedrock, Vertex, gateways or API key helper), and Opus 5.5, Sonnet 5.5, Haiku 5.5 or Fable 5.2. It doesn't start with OpenTelemetry export or `DISABLE_TELEMETRY` on.\n- Press Ctrl+O to see the code. Code waits up to 10 minutes, or runs up to 2 hours in the background in auto or bypassPermissions mode.\n- Each tool call in the code still goes through your deny and ask rules and `PreToolUse` hooks. In auto mode the classifier reviews the code, not each call, so keep rules for calls you must control. Hooks can match the `REPL` tool to inspect the code.\n- You can resume a Code Mode session only with Code Mode on, and Remote Control, Chrome and computer use don't work in it.",
+     "links": [
+      {
+       "label": "Code Mode docs",
+       "url": "https://code.claude.com/docs/en/code-mode"
+      }
+     ],
+     "words": 272,
+     "minutes": 1.2
+    },
+    {
+     "id": "reddit:1xxsqu4",
+     "title": "Fable 5.2 feels lazy and burns tokens; the docs explain the fix",
+     "source": "r/ClaudeCode",
+     "url": "https://www.reddit.com/r/ClaudeCode/comments/1xxsqu4/after_burning_tokens_with_fable_52_i_appreciate/",
+     "published": "2026-11-16T15:47:23Z",
+     "score": 76,
+     "summary": "The poster found Fable 5.2 unmotivated on a small project, and at High as orchestrator it spawned 5 to 10 review agents against their rules. In their single test, Opus 5.5 High made fewer errors than Fable 5.2 Medium. Several commenters agree Fable stops short or skips steps.\n\nThe useful part is the comments pointing to Anthropic's Fable 5.2 prompting guide, which I checked:\n\n- **Ownership:** Fable adds to existing structure when the code seems to be someone else's. With `You are the owner and long-term maintainer of this codebase, and its design is up to you.` it consolidated duplicated code in about 75% of runs vs under 10% without. Cost: output tokens rose about 70 to 80%, with unrequested tests and docs. One commenter says adding \"this workspace is your codebase\" to CLAUDE.md fixed the laziness.\n- **Early stops:** at low and medium effort it ends turns early. The guide gives a \"Finishing work\" system-prompt block that halved unfinished sessions in Anthropic's replay, at about 30% more output tokens.\n- **Subagents:** at xhigh and max it uses subagents to review its own work. If it delegates too much, describe subagent cost in the tool description and remove standing \"delegate\" instructions.\n\nOne detailed comment suggests Fable 5.2 for analysis and planning, Opus 5.5 (medium to extra) for implementation, and no Opus 5.5 Max.",
+     "links": [
+      {
+       "label": "Prompting Claude Fable 5.2",
+       "url": "https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5-2"
+      }
+     ],
+     "words": 234,
+     "minutes": 1.0
+    },
+    {
+     "id": "reddit:1xxq60j",
+     "title": "Plugin: copy buttons for code blocks and tables in Claude Code's terminal",
+     "source": "r/ClaudeCode",
+     "url": "https://www.reddit.com/r/ClaudeCode/comments/1xxq60j/made_a_small_plugin_that_adds_copy_buttons_to/",
+     "published": "2026-11-16T14:04:39Z",
+     "score": 55,
+     "summary": "Adds copy buttons to code blocks, tables (paste straight into a spreadsheet) and the end of each reply, without leaving `/copy` lines in the conversation. Install with `/plugin install copy-buttons --marketplace leonasdev/copy-buttons`. Needs fullscreen mode (`/tui fullscreen`). Tested on Linux, macOS and Windows. No comments were fetched.",
+     "words": 61,
+     "minutes": 0.3
+    }
+   ],
+   "words": 829,
+   "minutes": 3.6
+  }
+ },
+ "more": [
+  {
+   "title": "llm 0.37.3: fix for logging broken by SQLite 3.54.1's JSON change",
+   "url": "https://simonwillison.net/2026/Nov/16/llm/",
+   "source": "Simon Willison",
+   "section": "news"
+  },
+  {
+   "title": "OpenAI expands ChatGPT for Academic Researchers to 200,000 researchers",
+   "url": "https://openai.com/index/expanding-chatgpt-for-academic-researchers",
+   "source": "OpenAI News",
+   "section": "news"
+  },
+  {
+   "title": "Science at the Frontier: survey of 1,800 scientists using ChatGPT",
+   "url": "https://openai.com/index/science-at-the-frontier",
+   "source": "OpenAI News",
+   "section": "news"
+  },
+  {
+   "title": "Essay: All AI-generated code should be open source (HN 1,271 points)",
+   "url": "https://jakub.jankiewicz.org/blog/ai-code-open-source/",
+   "source": "Hacker News",
+   "section": "news"
+  },
+  {
+   "title": "Essay: Software is breaking down at a systemic level",
+   "url": "https://www.breck-mckye.com/blog/2026/11/software-is-breaking-down-at-a-systemic-level/",
+   "source": "Hacker News",
+   "section": "news"
+  }
+ ],
+ "source_issues": [
+  "GitHub releases for anthropics/claude-code and openai/codex failed with 403: this cloud session's proxy blocks the GitHub API for repos outside the session. Claude Code was covered from its CHANGELOG.md and npm; no stable Codex release since 0.169.0 on 13 Nov.",
+  "YouTube transcripts blocked (IP blocked by YouTube, yt-dlp asked for sign-in): 1 video summarized from its description.",
+  "Reddit JSON API blocked (403); both subreddits came via RSS without scores, and some comment fetches hit 429.",
+  "The Qwen4-Max blog page did not render; the item uses the HN thread and third-party coverage."
+ ],
+ "total_words": 1855,
+ "total_minutes": 8.1,
+ "words_per_minute": 230.0,
+ "max_minutes": 25.0,
+ "x_list_url": "https://x.com/i/lists/2122622486575562915",
+ "x_list_minutes": 5,
+ "finalized_at": "2026-11-17T10:42:32Z"
+}
